@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/faiface/pixel"
-	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
 )
 
@@ -52,13 +51,9 @@ func (u *upgradeScreen) update(dt float64, win *pixelgl.Window) leveler {
 }
 
 func (u *upgradeScreen) draw(target pixel.Target) {
-	imd := imdraw.New(nil)
-
 	for i, up := range availableUpgrades() {
-		up.draw(target, imd, i, u.hoveringOn)
+		up.draw(target, i, u.hoveringOn)
 	}
-
-	imd.Draw(target)
 }
 
 //  0 | 1

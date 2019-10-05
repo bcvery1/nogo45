@@ -75,7 +75,7 @@ type upgrade struct {
 	next []*upgrade
 }
 
-func (u upgrade) draw(target pixel.Target, imd *imdraw.IMDraw, ind, hoveringOn int) {
+func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
 	backingC := upgradeBackingColour
 
 	dims := upgradeIndToPos(ind)
@@ -83,7 +83,9 @@ func (u upgrade) draw(target pixel.Target, imd *imdraw.IMDraw, ind, hoveringOn i
 		backingC = upgradeBackingHoverColour
 	}
 
-	imd.Push(cam.Project(dims.Min), cam.Project(dims.Max))
+	imd := imdraw.New(nil)
+
+	imd.Push(cam.Unproject(dims.Min), cam.Unproject(dims.Max))
 	imd.Color = backingC
 	imd.Rectangle(0)
 
@@ -94,19 +96,23 @@ func (u upgrade) draw(target pixel.Target, imd *imdraw.IMDraw, ind, hoveringOn i
 		dims.Max.Y+2,
 	)
 
-	imd.Push(cam.Project(grown.Min), cam.Project(grown.Max))
+	imd.Push(cam.Unproject(grown.Min), cam.Unproject(grown.Max))
 	imd.Color = upgradeBorderColour
 	imd.Rectangle(3)
 
-	t := text.New(cam.Project(dims.Center()), atlas)
+	imd.Draw(target)
+
+	moveTitle := dims.Center().Add(pixel.V(-140, 120))
+	t := text.New(cam.Unproject(moveTitle), atlas)
 	t.Color = defaultTextColour
 	_, _ = t.WriteString(u.name)
 	t.Draw(target, pixel.IM)
 
-	t.Clear()
+	moveDesc := dims.Center().Add(pixel.V(-180, 80))
+	t = text.New(cam.Unproject(moveDesc), atlas)
+	t.Color = defaultTextColour
 	_, _ = t.WriteString(u.desc)
-	//moveDesc := bottomLeftV.Add(dims.Center()).Add(pixel.V(-20, -40))
-	//t.Draw(target, pixel.IM.Moved(bottomLeftV.Add(dims.Min)))
+	t.Draw(target, pixel.IM)
 }
 
 func availableUpgrades() []upgrade {
