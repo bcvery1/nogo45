@@ -29,7 +29,7 @@ var (
 	}
 
 	intro2 = dialogue{
-		text:  "Oh!  You seem to be missing a character",
+		text:  "Oh!  You seem to be missing a level",
 		next:  &intro3,
 		delay: time.Second * 3,
 	}
