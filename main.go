@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image/color"
 	"os"
 	"path/filepath"
@@ -63,6 +62,13 @@ func run() {
 		panic(err)
 	}
 
+	objs := tmxMap.GetObjectByName("start")
+	startPoint, err := objs[0].GetPoint()
+	if err != nil {
+		panic(err)
+	}
+	camPos = startPoint
+
 	last := time.Now()
 
 	for !win.Closed() {
@@ -83,11 +89,7 @@ func run() {
 		_ = DialoguePresenter.update(dt, win)
 		DialoguePresenter.draw(win)
 
-		// TODO remove this debug
-		if win.JustPressed(pixelgl.MouseButton1) {
-			mPos := win.MousePosition()
-			fmt.Printf("Window (%.0f, %.0f) Projected (%.0f, %.0f)\n", mPos.X, mPos.Y, cam.Unproject(mPos).X, cam.Unproject(mPos).Y)
-		}
+		debug1(win)
 
 		win.Update()
 

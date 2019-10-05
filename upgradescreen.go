@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sync"
 
 	"github.com/faiface/pixel"
@@ -50,9 +49,7 @@ func (u *upgradeScreen) update(dt float64, win *pixelgl.Window) leveler {
 			upClicked := u.avail[u.hoveringOn]
 			if upClicked.cost <= Player.coins {
 				// Can purchase upgrade
-				fmt.Println(upClicked)
 				upClicked.acquire()
-				fmt.Println(upClicked)
 
 				// a panel was clicked
 				u.avail = availableUpgrades()

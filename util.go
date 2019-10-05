@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"os"
 	"sync/atomic"
@@ -43,6 +42,5 @@ func spritePos(i, j int) pixel.Rect {
 		(iF+1)*16,
 		(jF+1)*16,
 	)
-	fmt.Println(r)
 	return r
 }

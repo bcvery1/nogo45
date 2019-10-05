@@ -88,16 +88,14 @@ func (d *dialoguePresent) draw(target pixel.Target) {
 	const diaHeight = 400
 	const diaPadding = 40
 
-	bottomLeftV := pixel.ZV.Sub(cam.Unproject(winBounds.Center())).Sub(winBounds.Center())
-
 	// Box
 	diaIMD.Clear()
 
 	diaIMD.Color = colornames.Beige
 
-	bottomLeft := pixel.V(diaBorder, diaBottom).Add(bottomLeftV)
-	topLeft := pixel.V(diaBorder, diaHeight).Add(bottomLeftV)
-	topRight := pixel.V(winBounds.Max.X-diaBorder, diaHeight).Add(bottomLeftV)
+	bottomLeft := cam.Unproject(pixel.V(diaBorder, diaBottom))
+	topLeft := cam.Unproject(pixel.V(diaBorder, diaHeight))
+	topRight := cam.Unproject(pixel.V(winBounds.Max.X-diaBorder, diaHeight))
 
 	diaIMD.Push(bottomLeft, topRight)
 	diaIMD.Rectangle(0)
