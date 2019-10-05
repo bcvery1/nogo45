@@ -26,7 +26,7 @@ var (
 	firstRight sync.Once
 
 	// pixels per second
-	speed = 16. * 5
+	speed = 16. * 8
 )
 
 func init() {
