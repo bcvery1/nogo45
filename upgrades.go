@@ -132,7 +132,9 @@ func availableUpgrades() []*upgrade {
 
 	for _, u := range acquiredUpgrades {
 		for _, n := range u.next {
-			availUps = append(availUps, n)
+			if !n.acquired {
+				availUps = append(availUps, n)
+			}
 		}
 	}
 
