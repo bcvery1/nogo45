@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image/color"
 
 	"github.com/faiface/pixel"
@@ -68,11 +69,12 @@ var (
 )
 
 type upgrade struct {
-	id   int
-	name string
-	desc string
-	cost int
-	next []*upgrade
+	id       int
+	name     string
+	desc     string
+	cost     int
+	acquired bool
+	next     []*upgrade
 }
 
 func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
@@ -105,7 +107,7 @@ func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
 	moveTitle := dims.Center().Add(pixel.V(-140, 120))
 	t := text.New(cam.Unproject(moveTitle), atlas)
 	t.Color = defaultTextColour
-	_, _ = t.WriteString(u.name)
+	_, _ = t.WriteString(fmt.Sprintf("%s - %d coins", u.name, u.cost))
 	t.Draw(target, pixel.IM)
 
 	moveDesc := dims.Center().Add(pixel.V(-180, 80))
@@ -113,6 +115,16 @@ func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
 	t.Color = defaultTextColour
 	_, _ = t.WriteString(u.desc)
 	t.Draw(target, pixel.IM)
+}
+
+func (u *upgrade) acquire() {
+	if u.cost > Player.coins {
+		return
+	}
+	addCoins(-1 * u.cost)
+
+	u.acquired = true
+	acquiredUpgrades = append(acquiredUpgrades, *u)
 }
 
 func availableUpgrades() []upgrade {

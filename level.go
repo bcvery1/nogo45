@@ -39,6 +39,9 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 	}
 
 	if win.JustPressed(pixelgl.KeyU) {
+		firstOpen.Do(func() {
+			addCoins(1)
+		})
 		return &UpgradeScreen
 	}
 
@@ -46,6 +49,10 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 }
 
 func (l *level) draw(target pixel.Target) {
+	if !seeLevel.acquired {
+		return
+	}
+
 	if err := tmxMap.DrawAll(target, color.Transparent, pixel.IM); err != nil {
 		panic(err)
 	}

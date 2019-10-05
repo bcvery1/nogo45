@@ -1,6 +1,8 @@
 package main
 
 import (
+	"sync"
+
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
 )
@@ -22,6 +24,8 @@ var (
 	upBottomRightR = pixel.R(upMargin*2+upWidth, upMargin, upMargin*2+upWidth*2, upMargin+upHeight)
 	upTopLeftR     = pixel.R(upMargin, upMargin*2+upHeight, upMargin+upWidth, upMargin*2+upHeight*2)
 	upTopRightR    = pixel.R(upMargin*2+upWidth, upMargin*2+upHeight, upMargin*2+upWidth*2, upMargin*2+upHeight*2)
+
+	firstOpen sync.Once
 )
 
 type upgradeScreen struct {
@@ -42,8 +46,14 @@ func (u *upgradeScreen) update(dt float64, win *pixelgl.Window) leveler {
 
 	if win.JustPressed(pixelgl.MouseButton1) {
 		if u.hoveringOn > -1 && u.hoveringOn < len(u.avail) {
-			// a panel was clicked
-			u.avail = availableUpgrades()
+			upClicked := u.avail[u.hoveringOn]
+			if upClicked.cost <= Player.coins {
+				// Can purchase upgrade
+				upClicked.acquire()
+
+				// a panel was clicked
+				u.avail = availableUpgrades()
+			}
 		}
 	}
 
