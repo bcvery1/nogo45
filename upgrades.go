@@ -11,13 +11,6 @@ import (
 
 var (
 	acquiredUpgrades []*upgrade
-	allUpgrades      = []*upgrade{
-		movementControls,
-		seeLevel,
-		slowEnemies,
-		mediumEnemies,
-		fastEnemies,
-	}
 )
 
 var (
@@ -33,6 +26,9 @@ var (
 		desc: "Gives the players character the ability to move",
 		cost: 1,
 		next: []*upgrade{seeLevel},
+		after: func() {
+			DialoguePresenter.queue(afterMovement)
+		},
 	}
 
 	seeLevel = &upgrade{
@@ -46,7 +42,7 @@ var (
 	slowEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Basic enemies",
-		desc: "Add slow moving enemies to the map.  Enemies drop coins on death",
+		desc: "Add slow moving enemies to the map.\nEnemies drop coins on death",
 		cost: 5,
 		next: []*upgrade{},
 	}
@@ -54,7 +50,7 @@ var (
 	mediumEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Regular enemies",
-		desc: "Add enemies to the map which can move a bit faster.  Enemies drop coins on death",
+		desc: "Add enemies to the map which can move a bit faster.\nEnemies drop coins on death",
 		cost: 25,
 		next: nil,
 	}
@@ -62,7 +58,7 @@ var (
 	fastEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Advanced enemies",
-		desc: "Add fast moving enemies to the map.  Enemies drop coins on death",
+		desc: "Add fast moving enemies to the map.\nEnemies drop coins on death",
 		cost: 35,
 		next: nil,
 	}
@@ -75,6 +71,7 @@ type upgrade struct {
 	cost     int
 	acquired bool
 	next     []*upgrade
+	after    func()
 }
 
 func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
@@ -125,6 +122,9 @@ func (u *upgrade) acquire() {
 
 	u.acquired = true
 	acquiredUpgrades = append(acquiredUpgrades, u)
+	if u.after != nil {
+		u.after()
+	}
 }
 
 func availableUpgrades() []*upgrade {

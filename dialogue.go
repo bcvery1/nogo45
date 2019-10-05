@@ -50,6 +50,10 @@ var (
 		text:  "To get your first coin, just press 'u' to get to the upgrade menu\nExit this dialogue first with 'Space'",
 		delay: time.Second,
 	}
+
+	afterMovement = dialogue{
+		text: "Now you can move your character\nUse Esc to get out the upgrade menu\nthen try it out with WASD",
+	}
 )
 
 type dialogue struct {
@@ -126,6 +130,11 @@ func (d *dialoguePresent) updateShowing(dt float64, win *pixelgl.Window) {
 
 		return
 	}
+}
+
+// queue queues up a dialogue
+func (d *dialoguePresent) queue(dia dialogue) {
+	d.currentRun = &dia
 }
 
 func (d *dialoguePresent) updateNotShowing(dt float64, win *pixelgl.Window) {

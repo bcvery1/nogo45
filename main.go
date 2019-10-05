@@ -80,9 +80,6 @@ func run() {
 		_ = HUD.update(dt, win)
 		HUD.draw(win)
 
-		_ = Player.update(dt, win)
-		Player.draw(win)
-
 		_ = DialoguePresenter.update(dt, win)
 		DialoguePresenter.draw(win)
 
