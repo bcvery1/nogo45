@@ -10,8 +10,8 @@ import (
 )
 
 var (
-	acquiredUpgrades []upgrade
-	allUpgrades      = []upgrade{
+	acquiredUpgrades []*upgrade
+	allUpgrades      = []*upgrade{
 		movementControls,
 		seeLevel,
 		slowEnemies,
@@ -27,23 +27,23 @@ var (
 )
 
 var (
-	movementControls = upgrade{
+	movementControls = &upgrade{
 		id:   uniqueID(),
 		name: "Movement controls",
 		desc: "Gives the players character the ability to move",
 		cost: 1,
-		next: []*upgrade{&seeLevel},
+		next: []*upgrade{seeLevel},
 	}
 
-	seeLevel = upgrade{
+	seeLevel = &upgrade{
 		id:   uniqueID(),
 		name: "Level",
 		desc: "Allows the player to see the level which includes coins",
 		cost: 4,
-		next: []*upgrade{&slowEnemies, &mediumEnemies, &fastEnemies},
+		next: []*upgrade{slowEnemies, mediumEnemies, fastEnemies},
 	}
 
-	slowEnemies = upgrade{
+	slowEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Basic enemies",
 		desc: "Add slow moving enemies to the map.  Enemies drop coins on death",
@@ -51,7 +51,7 @@ var (
 		next: []*upgrade{},
 	}
 
-	mediumEnemies = upgrade{
+	mediumEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Regular enemies",
 		desc: "Add enemies to the map which can move a bit faster.  Enemies drop coins on death",
@@ -59,7 +59,7 @@ var (
 		next: nil,
 	}
 
-	fastEnemies = upgrade{
+	fastEnemies = &upgrade{
 		id:   uniqueID(),
 		name: "Advanced enemies",
 		desc: "Add fast moving enemies to the map.  Enemies drop coins on death",
@@ -124,25 +124,25 @@ func (u *upgrade) acquire() {
 	addCoins(-1 * u.cost)
 
 	u.acquired = true
-	acquiredUpgrades = append(acquiredUpgrades, *u)
+	acquiredUpgrades = append(acquiredUpgrades, u)
 }
 
-func availableUpgrades() []upgrade {
-	var availUps []upgrade
+func availableUpgrades() []*upgrade {
+	var availUps []*upgrade
 
 	for _, u := range acquiredUpgrades {
 		for _, n := range u.next {
-			availUps = append(availUps, *n)
+			availUps = append(availUps, n)
 		}
 	}
 
 	if len(availUps) == 0 {
-		return []upgrade{movementControls}
+		return []*upgrade{movementControls}
 	}
 
 	return dedup(availUps)
 }
 
-func dedup(ups []upgrade) []upgrade {
+func dedup(ups []*upgrade) []*upgrade {
 	return ups
 }
