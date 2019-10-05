@@ -2,19 +2,96 @@ package main
 
 import (
 	"github.com/faiface/pixel"
+	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
 )
 
-var (
-	UpgradeScreen = upgradeScreen{}
+const (
+	upMargin  = 40
+	upPadding = 30
 )
 
-type upgradeScreen struct{}
+var (
+	UpgradeScreen = upgradeScreen{
+		hoveringOn: -1,
+	}
+
+	upWidth  = (winBounds.Max.X - upMargin*3) / 2
+	upHeight = (winBounds.Max.Y - upMargin*3) / 2
+
+	upBottomLeftR  = pixel.R(upMargin, upMargin, upMargin+upWidth, upMargin+upHeight)
+	upBottomRightR = pixel.R(upMargin*2+upWidth, upMargin, upMargin*2+upWidth*2, upMargin+upHeight)
+	upTopLeftR     = pixel.R(upMargin, upMargin*2+upHeight, upMargin+upWidth, upMargin*2+upHeight*2)
+	upTopRightR    = pixel.R(upMargin*2+upWidth, upMargin*2+upHeight, upMargin*2+upWidth*2, upMargin*2+upHeight*2)
+)
+
+type upgradeScreen struct {
+	hoveringOn int
+	avail      []upgrade
+}
 
 func (u *upgradeScreen) update(dt float64, win *pixelgl.Window) leveler {
-	panic("implement me")
+	if win.JustPressed(pixelgl.KeyEscape) {
+		return &Level
+	}
+
+	if u.avail == nil {
+		u.avail = availableUpgrades()
+	}
+
+	u.hoveringOn = posToUpgradeInd(win.MousePosition())
+
+	if win.JustPressed(pixelgl.MouseButton1) {
+		if u.hoveringOn > -1 && u.hoveringOn < len(u.avail) {
+			// a panel was clicked
+			u.avail = availableUpgrades()
+		}
+	}
+
+	return u
 }
 
 func (u *upgradeScreen) draw(target pixel.Target) {
-	panic("implement me")
+	imd := imdraw.New(nil)
+
+	for i, up := range availableUpgrades() {
+		up.draw(imd, i, u.hoveringOn)
+	}
+
+	imd.Draw(target)
+}
+
+//  0 | 1
+// ---+---
+//  2 | 3
+func posToUpgradeInd(pos pixel.Vec) int {
+	switch {
+	case upTopLeftR.Contains(pos):
+		return 0
+	case upTopRightR.Contains(pos):
+		return 1
+	case upBottomLeftR.Contains(pos):
+		return 2
+	case upBottomRightR.Contains(pos):
+		return 3
+	default:
+		return -1
+	}
+}
+
+func upgradeIndToPos(ind int) pixel.Rect {
+	bottomLeftV := pixel.ZV.Sub(cam.Unproject(winBounds.Center())).Sub(winBounds.Center())
+
+	switch ind {
+	case 0:
+		return upTopLeftR.Moved(bottomLeftV)
+	case 1:
+		return upTopRightR.Moved(bottomLeftV)
+	case 2:
+		return upBottomLeftR.Moved(bottomLeftV)
+	case 3:
+		return upBottomRightR.Moved(bottomLeftV)
+	default:
+		return pixel.ZR
+	}
 }

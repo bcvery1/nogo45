@@ -1,5 +1,12 @@
 package main
 
+import (
+	"image/color"
+
+	"github.com/faiface/pixel"
+	"github.com/faiface/pixel/imdraw"
+)
+
 var (
 	acquiredUpgrades []upgrade
 	allUpgrades      = []upgrade{
@@ -9,6 +16,12 @@ var (
 		mediumEnemies,
 		fastEnemies,
 	}
+)
+
+var (
+	upgradeBorderColour       = color.RGBA{R: 0x09, G: 0x0d, B: 0x18, A: 0xff}
+	upgradeBackingColour      = color.RGBA{R: 0xb0, G: 0xbb, B: 0xdd, A: 0xff}
+	upgradeBackingHoverColour = color.RGBA{R: 0x52, G: 0xe2, B: 0x52, A: 0xff}
 )
 
 var (
@@ -59,6 +72,30 @@ type upgrade struct {
 	desc string
 	cost int
 	next []*upgrade
+}
+
+func (u upgrade) draw(imd *imdraw.IMDraw, ind, hoveringOn int) {
+	backingC := upgradeBackingColour
+
+	dims := upgradeIndToPos(ind)
+	if ind == hoveringOn {
+		backingC = upgradeBackingHoverColour
+	}
+
+	imd.Push(dims.Min, dims.Max)
+	imd.Color = backingC
+	imd.Rectangle(0)
+
+	grown := pixel.R(
+		dims.Min.X-2,
+		dims.Min.Y-2,
+		dims.Max.X+2,
+		dims.Max.Y+2,
+	)
+
+	imd.Push(grown.Min, grown.Max)
+	imd.Color = upgradeBorderColour
+	imd.Rectangle(3)
 }
 
 func availableUpgrades() []upgrade {

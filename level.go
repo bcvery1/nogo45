@@ -42,7 +42,7 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 		return &UpgradeScreen
 	}
 
-	return &Level
+	return l
 }
 
 func (l *level) draw(target pixel.Target) {
