@@ -52,7 +52,7 @@ var (
 	}
 
 	afterMovement = dialogue{
-		text: "Now you can move your character\nUse Esc to get out the upgrade menu\nthen try it out with WASD",
+		text: "Now you can move your character\nUse Esc to get out the upgrade menu then try out moving with WASD",
 	}
 )
 
