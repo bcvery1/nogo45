@@ -21,11 +21,16 @@ Mostly unordered list, priority may come later.
  - [x] ToDo list
  - [x] Dialogue
  - [x] Upgrade screen
- - [ ] Character sprite - static
+ - [ ] Character static sprite
+ - [ ] Enemy static sprites
  - [x] Level design
    - [x] Tiles spritesheet
    - [x] Create level
    - [x] Collision change for individual sprites on [TilePix](github.com/bcvery1/tilepix)
+ - [ ] Enemies AI
+   - [ ] Static enemy AI
+   - [ ] Moving melee enemy AI
+   - [ ] Ranged enemy AI
  - [ ] Character animation
    - [ ] Extra sprites
    - [ ] Animation logic
