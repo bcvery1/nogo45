@@ -44,6 +44,10 @@ func init() {
 	}
 
 	coinPic = pixel.NewSprite(tilemapPic, spritePos(9, 0))
+
+	playerPics = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(0, 0)),
+	}
 }
 
 func run() {
@@ -73,11 +77,14 @@ func run() {
 		nextLvl := currentLvl.update(dt, win)
 		currentLvl.draw(win)
 
-		_ = DialoguePresenter.update(dt, win)
-		DialoguePresenter.draw(win)
-
 		_ = HUD.update(dt, win)
 		HUD.draw(win)
+
+		_ = Player.update(dt, win)
+		Player.draw(win)
+
+		_ = DialoguePresenter.update(dt, win)
+		DialoguePresenter.draw(win)
 
 		// TODO remove this debug
 		if win.JustPressed(pixelgl.MouseButton1) {
