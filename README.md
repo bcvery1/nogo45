@@ -10,6 +10,9 @@ The game will follow a basic 'get past the enemies' style level, enemies getting
 on.  Purchases will go from basics to more powerful weapon(s) and defenses, finally ending in overpowered items such as
 jetpacks and atom bomb.
 
+## Thoughts on the theme
+Will fill this in post-weekend, stay tuned.
+
 ## To Do list
 Mostly unordered list, priority may come later.
  - [x] Get cold brew in fridge
@@ -17,12 +20,12 @@ Mostly unordered list, priority may come later.
  - [x] Create Github page
  - [x] ToDo list
  - [ ] Dialogue
- - [ ] Upgrade screen
+ - [x] Upgrade screen
  - [ ] Character sprite - static
- - [ ] Level design
-   - [ ] Tiles spritesheet
-   - [ ] Create level
-   - [ ] Collision change for individual sprites on [TilePix](github.com/bcvery1/tilepix)
+ - [x] Level design
+   - [x] Tiles spritesheet
+   - [x] Create level
+   - [x] Collision change for individual sprites on [TilePix](github.com/bcvery1/tilepix)
  - [ ] Character animation
    - [ ] Extra sprites
    - [ ] Animation logic
