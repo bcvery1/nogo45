@@ -14,9 +14,10 @@ var (
 )
 
 var (
-	upgradeBorderColour       = color.RGBA{R: 0x09, G: 0x0d, B: 0x18, A: 0xff}
-	upgradeBackingColour      = color.RGBA{R: 0xb0, G: 0xbb, B: 0xdd, A: 0xff}
-	upgradeBackingHoverColour = color.RGBA{R: 0x52, G: 0xe2, B: 0x52, A: 0xff}
+	upgradeBorderColour              = color.RGBA{R: 0x09, G: 0x0d, B: 0x18, A: 0xff}
+	upgradeBackingColour             = color.RGBA{R: 0xb0, G: 0xbb, B: 0xdd, A: 0xff}
+	upgradeBackingHoverColour        = color.RGBA{R: 0x52, G: 0xe2, B: 0x52, A: 0xff}
+	upgradeBackingHoverColourBlocked = color.RGBA{R: 0x83, G: 0x0, B: 0x00, A: 0xff}
 )
 
 var (
@@ -78,8 +79,10 @@ func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
 	backingC := upgradeBackingColour
 
 	dims := upgradeIndToPos(ind)
-	if ind == hoveringOn {
+	if ind == hoveringOn && u.cost <= Player.coins {
 		backingC = upgradeBackingHoverColour
+	} else if ind == hoveringOn {
+		backingC = upgradeBackingHoverColourBlocked
 	}
 
 	imd := imdraw.New(nil)
