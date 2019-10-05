@@ -20,6 +20,9 @@ var (
 	firstDown  sync.Once
 	firstLeft  sync.Once
 	firstRight sync.Once
+
+	// pixels per second
+	speed = 16. * 3
 )
 
 func init() {
@@ -57,30 +60,41 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 		return currentLvl
 	}
 
+	deltaV := pixel.ZV
 	// up
 	if win.Pressed(pixelgl.KeyW) {
 		firstUp.Do(func() {
 			addCoins(1)
 		})
+
+		deltaV = deltaV.Add(pixel.V(0, speed*dt))
 	}
 	// down
 	if win.Pressed(pixelgl.KeyS) {
 		firstDown.Do(func() {
 			addCoins(1)
 		})
+
+		deltaV = deltaV.Add(pixel.V(0, -speed*dt))
 	}
 	// left
 	if win.Pressed(pixelgl.KeyA) {
 		firstLeft.Do(func() {
 			addCoins(1)
 		})
+
+		deltaV = deltaV.Add(pixel.V(-speed*dt, 0))
 	}
 	// right
 	if win.Pressed(pixelgl.KeyD) {
 		firstRight.Do(func() {
 			addCoins(1)
 		})
+
+		deltaV = deltaV.Add(pixel.V(speed*dt, 0))
 	}
+
+	camPos = camPos.Add(deltaV)
 
 	return l
 }
