@@ -2,24 +2,46 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"path/filepath"
 	"time"
 
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
 	"github.com/faiface/pixel/text"
+	"github.com/sirupsen/logrus"
 	"golang.org/x/image/colornames"
 	"golang.org/x/image/font/basicfont"
 )
 
 var (
-	winBounds                = pixel.R(0, 0, 1024, 720)
-	currentLvl       leveler = &Level
-	backgroundColour         = colornames.Whitesmoke
-	camPos                   = pixel.ZV
-	cam              pixel.Matrix
-	atlas            *text.Atlas
-	t                *text.Text
+	winBounds          = pixel.R(0, 0, 1024, 720)
+	currentLvl leveler = &Level
+
+	backgroundColour = colornames.Whitesmoke
+
+	camPos = pixel.ZV
+	cam    pixel.Matrix
+
+	atlas *text.Atlas
+	t     *text.Text
+
+	binPath string
 )
+
+func init() {
+	logrus.SetLevel(logrus.FatalLevel)
+
+	bin, err := os.Executable()
+	if err != nil {
+		panic(err)
+	}
+	binPath = filepath.Dir(bin)
+	tilemapPic, err = loadPicture(filepath.Join(binPath, "assets/tilesheet.png"))
+	if err != nil {
+		panic(err)
+	}
+}
 
 func run() {
 	cfg := pixelgl.WindowConfig{
