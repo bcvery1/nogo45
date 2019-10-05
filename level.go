@@ -19,6 +19,10 @@ type level struct {
 }
 
 func (l *level) update(dt float64, win *pixelgl.Window) leveler {
+	if isPaused() {
+		return currentLvl
+	}
+
 	if win.JustPressed(pixelgl.KeyU) {
 		return &UpgradeScreen
 	}
