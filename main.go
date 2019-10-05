@@ -2,6 +2,7 @@ package main
 
 import (
 	"image/color"
+	"math/rand"
 	"os"
 	"path/filepath"
 	"time"
@@ -47,6 +48,12 @@ func init() {
 	playerPics = []*pixel.Sprite{
 		pixel.NewSprite(tilemapPic, spritePos(0, 0)),
 	}
+
+	enemy1Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(2, 1)),
+	}
+
+	rand.Seed(time.Now().UnixNano())
 }
 
 func run() {
@@ -69,6 +76,9 @@ func run() {
 	}
 	camPos = startPoint
 
+	// TODO remove this debug line
+	Enemies = append(Enemies, NewEnemy())
+
 	last := time.Now()
 
 	for !win.Closed() {
@@ -82,6 +92,9 @@ func run() {
 
 		nextLvl := currentLvl.update(dt, win)
 		currentLvl.draw(win)
+
+		_ = updateEnemies(dt, win)
+		drawEnemeies(win)
 
 		_ = HUD.update(dt, win)
 		HUD.draw(win)

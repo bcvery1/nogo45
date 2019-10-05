@@ -31,3 +31,12 @@ func pointCollides(p pixel.Vec) bool {
 	}
 	return false
 }
+
+func lineCollides(l pixel.Line) bool {
+	for _, col := range collisionRs {
+		if col.IntersectLine(l) != pixel.ZV {
+			return true
+		}
+	}
+	return false
+}
