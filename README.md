@@ -19,7 +19,7 @@ Mostly unordered list, priority may come later.
  - [ ] ~~Plan for enough sleep~~ <- no
  - [x] Create Github page
  - [x] ToDo list
- - [ ] Dialogue
+ - [x] Dialogue
  - [x] Upgrade screen
  - [ ] Character sprite - static
  - [x] Level design
