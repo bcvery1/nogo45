@@ -10,6 +10,10 @@ import (
 	"github.com/faiface/pixel/pixelgl"
 )
 
+const (
+	nonCollionOGName = "objs"
+)
+
 var (
 	Level = level{}
 
@@ -30,6 +34,29 @@ func init() {
 	tmxMap, err = tilepix.ReadFile(filepath.Join(binPath, "assets/level1.tmx"))
 	if err != nil {
 		panic(err)
+	}
+
+	for _, l := range tmxMap.TileLayers {
+		l.SetStatic(true)
+	}
+
+	if err := tmxMap.GenerateTileObjectLayer(); err != nil {
+		panic(err)
+	}
+	for _, og := range tmxMap.ObjectGroups {
+		// only get collision groups
+		if og.Name == nonCollionOGName {
+			continue
+		}
+
+		for _, obj := range og.Objects {
+			r, err := obj.GetRect()
+			if err != nil {
+				panic(err)
+			}
+
+			collisionRs = append(collisionRs, r)
+		}
 	}
 }
 
@@ -77,6 +104,12 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 
 		deltaV = deltaV.Add(pixel.V(0, -speed*dt))
 	}
+	// Allow vertical movement separate to horizontal
+	if seeLevel.acquired && deltaV != pixel.ZV && !rectCollides(Player.collisionBox().Moved(deltaV)) {
+		camPos = camPos.Add(deltaV)
+	}
+	deltaV = pixel.ZV
+
 	// left
 	if win.Pressed(pixelgl.KeyA) {
 		firstLeft.Do(func() {
@@ -94,7 +127,9 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 		deltaV = deltaV.Add(pixel.V(speed*dt, 0))
 	}
 
-	camPos = camPos.Add(deltaV)
+	if seeLevel.acquired && deltaV != pixel.ZV && !rectCollides(Player.collisionBox().Moved(deltaV)) {
+		camPos = camPos.Add(deltaV)
+	}
 
 	return l
 }

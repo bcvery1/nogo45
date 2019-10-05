@@ -11,6 +11,8 @@ var (
 	Player = player{}
 
 	playerPics []*pixel.Sprite
+
+	playerSize = pixel.V(16, 16)
 )
 
 type player struct {
@@ -25,8 +27,19 @@ func (p *player) update(dt float64, win *pixelgl.Window) leveler {
 
 func (p *player) draw(target pixel.Target) {
 	// TODO animate
-	unproj := cam.Unproject(winBounds.Center().Sub(pixel.V(8, 8)))
+	unproj := cam.Unproject(winBounds.Center().Sub(playerSize))
 	playerPics[0].Draw(target, pixel.IM.Moved(unproj).Rotated(unproj, p.angle))
+}
+
+func (p player) collisionBox() pixel.Rect {
+	centre := cam.Unproject(winBounds.Center().Sub(playerSize))
+
+	return pixel.R(
+		centre.X,
+		centre.Y,
+		centre.X+playerSize.X,
+		centre.Y+playerSize.Y,
+	)
 }
 
 func addCoins(delta int) {
