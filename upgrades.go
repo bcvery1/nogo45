@@ -5,6 +5,7 @@ import (
 
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
+	"github.com/faiface/pixel/text"
 )
 
 var (
@@ -74,7 +75,7 @@ type upgrade struct {
 	next []*upgrade
 }
 
-func (u upgrade) draw(imd *imdraw.IMDraw, ind, hoveringOn int) {
+func (u upgrade) draw(target pixel.Target, imd *imdraw.IMDraw, ind, hoveringOn int) {
 	backingC := upgradeBackingColour
 
 	dims := upgradeIndToPos(ind)
@@ -82,7 +83,7 @@ func (u upgrade) draw(imd *imdraw.IMDraw, ind, hoveringOn int) {
 		backingC = upgradeBackingHoverColour
 	}
 
-	imd.Push(dims.Min, dims.Max)
+	imd.Push(cam.Project(dims.Min), cam.Project(dims.Max))
 	imd.Color = backingC
 	imd.Rectangle(0)
 
@@ -93,9 +94,19 @@ func (u upgrade) draw(imd *imdraw.IMDraw, ind, hoveringOn int) {
 		dims.Max.Y+2,
 	)
 
-	imd.Push(grown.Min, grown.Max)
+	imd.Push(cam.Project(grown.Min), cam.Project(grown.Max))
 	imd.Color = upgradeBorderColour
 	imd.Rectangle(3)
+
+	t := text.New(cam.Project(dims.Center()), atlas)
+	t.Color = defaultTextColour
+	_, _ = t.WriteString(u.name)
+	t.Draw(target, pixel.IM)
+
+	t.Clear()
+	_, _ = t.WriteString(u.desc)
+	//moveDesc := bottomLeftV.Add(dims.Center()).Add(pixel.V(-20, -40))
+	//t.Draw(target, pixel.IM.Moved(bottomLeftV.Add(dims.Min)))
 }
 
 func availableUpgrades() []upgrade {

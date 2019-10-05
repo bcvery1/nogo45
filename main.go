@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"image/color"
 	"os"
 	"path/filepath"
 	"time"
@@ -18,13 +19,13 @@ var (
 	winBounds          = pixel.R(0, 0, 1024, 720)
 	currentLvl leveler = &Level
 
-	backgroundColour = colornames.Whitesmoke
+	backgroundColour  = colornames.Whitesmoke
+	defaultTextColour = color.RGBA{R: 0x10, G: 0x00, B: 0x00, A: 0xff}
 
 	camPos = pixel.ZV
 	cam    pixel.Matrix
 
 	atlas *text.Atlas
-	t     *text.Text
 
 	binPath string
 )
@@ -50,8 +51,6 @@ func run() {
 	}
 
 	atlas = text.NewAtlas(basicfont.Face7x13, text.ASCII)
-	t = text.New(pixel.ZV, atlas)
-	t.Color = colornames.Navy
 
 	win, err := pixelgl.NewWindow(cfg)
 	if err != nil {

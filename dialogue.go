@@ -7,6 +7,7 @@ import (
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
+	"github.com/faiface/pixel/text"
 	"golang.org/x/image/colornames"
 )
 
@@ -100,13 +101,15 @@ func (d *dialoguePresent) draw(target pixel.Target) {
 	diaIMD.Draw(target)
 
 	// Text
-	t.Clear()
+	t := text.New(topLeft.Add(pixel.V(diaPadding, -diaPadding)), atlas)
+	t.Color = defaultTextColour
 	_, _ = fmt.Fprint(t, d.currentRun.text)
-	t.Draw(target, pixel.IM.Moved(topLeft.Add(pixel.V(diaPadding, -diaPadding))))
+	t.Draw(target, pixel.IM)
 
-	t.Clear()
+	t = text.New(bottomLeft.Add(pixel.V(winBounds.Center().X, diaPadding)), atlas)
+	t.Color = defaultTextColour
 	_, _ = fmt.Fprint(t, "Press space to continue...")
-	t.Draw(target, pixel.IM.Moved(bottomLeft.Add(pixel.V(winBounds.Center().X, diaPadding))))
+	t.Draw(target, pixel.IM)
 }
 
 func (d *dialoguePresent) updateShowing(dt float64, win *pixelgl.Window) {

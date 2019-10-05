@@ -55,7 +55,7 @@ func (u *upgradeScreen) draw(target pixel.Target) {
 	imd := imdraw.New(nil)
 
 	for i, up := range availableUpgrades() {
-		up.draw(imd, i, u.hoveringOn)
+		up.draw(target, imd, i, u.hoveringOn)
 	}
 
 	imd.Draw(target)
@@ -80,17 +80,15 @@ func posToUpgradeInd(pos pixel.Vec) int {
 }
 
 func upgradeIndToPos(ind int) pixel.Rect {
-	bottomLeftV := pixel.ZV.Sub(cam.Unproject(winBounds.Center())).Sub(winBounds.Center())
-
 	switch ind {
 	case 0:
-		return upTopLeftR.Moved(bottomLeftV)
+		return upTopLeftR
 	case 1:
-		return upTopRightR.Moved(bottomLeftV)
+		return upTopRightR
 	case 2:
-		return upBottomLeftR.Moved(bottomLeftV)
+		return upBottomLeftR
 	case 3:
-		return upBottomRightR.Moved(bottomLeftV)
+		return upBottomRightR
 	default:
 		return pixel.ZR
 	}
