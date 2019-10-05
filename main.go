@@ -42,6 +42,8 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+
+	coinPic = pixel.NewSprite(tilemapPic, spritePos(9, 0))
 }
 
 func run() {
@@ -73,6 +75,9 @@ func run() {
 
 		_ = DialoguePresenter.update(dt, win)
 		DialoguePresenter.draw(win)
+
+		_ = HUD.update(dt, win)
+		HUD.draw(win)
 
 		// TODO remove this debug
 		if win.JustPressed(pixelgl.MouseButton1) {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"image"
 	"os"
 	"sync/atomic"
@@ -36,10 +37,12 @@ func loadPicture(path string) (pixel.Picture, error) {
 func spritePos(i, j int) pixel.Rect {
 	iF := float64(i)
 	jF := float64(j)
-	return pixel.R(
+	r := pixel.R(
 		iF*16,
 		jF*16.,
 		(iF+1)*16,
 		(jF+1)*16,
 	)
+	fmt.Println(r)
+	return r
 }

@@ -3,6 +3,7 @@ package main
 import (
 	"image/color"
 	"path/filepath"
+	"sync"
 
 	"github.com/bcvery1/tilepix"
 	"github.com/faiface/pixel"
@@ -14,6 +15,11 @@ var (
 
 	tmxMap     *tilepix.Map
 	tilemapPic pixel.Picture
+
+	firstUp    sync.Once
+	firstDown  sync.Once
+	firstLeft  sync.Once
+	firstRight sync.Once
 )
 
 func init() {
@@ -43,6 +49,31 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 			addCoins(1)
 		})
 		return &UpgradeScreen
+	}
+
+	// up
+	if win.Pressed(pixelgl.KeyW) {
+		firstUp.Do(func() {
+			addCoins(1)
+		})
+	}
+	// down
+	if win.Pressed(pixelgl.KeyS) {
+		firstDown.Do(func() {
+			addCoins(1)
+		})
+	}
+	// left
+	if win.Pressed(pixelgl.KeyA) {
+		firstLeft.Do(func() {
+			addCoins(1)
+		})
+	}
+	// right
+	if win.Pressed(pixelgl.KeyD) {
+		firstRight.Do(func() {
+			addCoins(1)
+		})
 	}
 
 	return l
