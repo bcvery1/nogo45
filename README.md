@@ -30,7 +30,7 @@ Mostly unordered list, priority may come later.
  - [ ] Sound effects
  - [ ] Music
  - [ ] Create release builds
-   - [ ] Find somewhere to build Windows
+   - [x] Find somewhere to build Windows
  - [ ] Submit to [Ludum Dare sith](ldjam.com)
  - [ ] Celebratory drink and cigar
 
