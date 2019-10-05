@@ -12,3 +12,8 @@
 *.out
 
 .idea
+
+dist/
+nogo45-linux-amd64
+nogo45-windows-4.0-amd64.exe
+nogo45-darwin-10.6-amd64
