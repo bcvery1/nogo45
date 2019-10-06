@@ -31,4 +31,9 @@ func debug1(win *pixelgl.Window) {
 		fmt.Println("collisions on")
 		debugOverride = false
 	}
+
+	if win.JustPressed(pixelgl.Key0) {
+		fmt.Println("killing")
+		Player.health = -1
+	}
 }

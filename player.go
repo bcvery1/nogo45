@@ -6,7 +6,9 @@ import (
 )
 
 var (
-	Player = player{}
+	Player = player{
+		health: 100,
+	}
 
 	playerPics []*pixel.Sprite
 
@@ -14,11 +16,17 @@ var (
 )
 
 type player struct {
-	coins int
-	angle float64
+	coins  int
+	angle  float64
+	health float64
 }
 
 func (p *player) update(dt float64, win *pixelgl.Window) leveler {
+	if p.health < 0 {
+		pauseGame()
+		return &DeathScreen
+	}
+
 	p.angle = winBounds.Center().To(win.MousePosition()).Angle()
 	return currentLvl
 }
@@ -38,6 +46,10 @@ func (p player) collisionBox() pixel.Rect {
 		centre.X+playerSize.X,
 		centre.Y+playerSize.Y,
 	)
+}
+
+func (p *player) hurt(delta float64) {
+	p.health -= delta
 }
 
 func addCoins(delta int) {

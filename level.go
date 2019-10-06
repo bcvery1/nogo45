@@ -81,7 +81,9 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 		return &UpgradeScreen
 	}
 
-	_ = Player.update(dt, win)
+	if lvl := Player.update(dt, win); lvl == &DeathScreen {
+		return lvl
+	}
 
 	if !movementControls.acquired {
 		return currentLvl
