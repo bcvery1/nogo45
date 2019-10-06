@@ -151,13 +151,13 @@ func (e *enemy) update(dt float64, win *pixelgl.Window) leveler {
 		return currentLvl
 	}
 
-	if e.static {
-		return currentLvl
-	}
-
 	if pixel.C(e.pos, e.searchRange).IntersectRect(Player.collisionBox()) != pixel.ZV {
 		// Can see player
-		e.moveToPlayer(dt)
+		if e.static {
+			e.aimAtPlayer()
+		} else {
+			e.moveToPlayer(dt)
+		}
 
 		return currentLvl
 	}
@@ -176,6 +176,10 @@ func (e *enemy) draw(target pixel.Target) {
 
 	// ToDO animate
 	e.sprites[0].Draw(target, pixel.IM.Moved(e.pos).Rotated(e.pos, e.angle))
+}
+
+func (e *enemy) aimAtPlayer() {
+	e.angle = e.pos.To(Player.collisionBox().Center()).Angle()
 }
 
 func (e *enemy) attack() {
