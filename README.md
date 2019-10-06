@@ -36,14 +36,14 @@ Mostly unordered list, priority may come later.
    - [ ] ~~Extra sprites~~
    - [ ] ~~Animation logic~~
  - [ ] Animation for recieving a point/coin
- - [ ] More upgrades:
+ - [x] More upgrades:
    - [x] More health 1
    - [x] More health 2
    - [x] Bigger attack
    - [x] More powerful attack
    - [x] Gun
    - [x] Rocket launcher
-   - [ ] Atom bomb ~~?~~ <- *yes*
+   - [x] Atom bomb ~~?~~ <- *yes*
  - [x] Sound effects
  - [x] Music
  - [ ] Create release builds
