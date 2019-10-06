@@ -31,7 +31,7 @@ Mostly unordered list, priority may come later.
    - [x] Static enemy AI
    - [x] Moving melee enemy AI
    - [x] Ranged enemy AI
- - [ ] Enemies drop coins
+ - [x] Enemies drop coins
  - [ ] ~~Character animation~~ <- Happy without this
    - [ ] ~~Extra sprites~~
    - [ ] ~~Animation logic~~

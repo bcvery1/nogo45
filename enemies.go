@@ -56,6 +56,7 @@ type enemy struct {
 
 	searchRange float64
 	health      float64
+	coins       int
 
 	attackRange   float64
 	attackTimeout time.Duration
@@ -145,6 +146,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackDam = 6
 		e.requiredUpgrade = slowEnemies
 		e.health = 25
+		e.coins = 10
 	case 2:
 		e.speed = 16 * 4
 		e.searchRange = 180
@@ -154,6 +156,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackDam = 12
 		e.requiredUpgrade = mediumEnemies
 		e.health = 35
+		e.coins = 15
 	case 3:
 		e.speed = 16 * 5
 		e.searchRange = 240
@@ -163,6 +166,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackDam = 20
 		e.requiredUpgrade = fastEnemies
 		e.health = 50
+		e.coins = 20
 	}
 
 	Enemies = append(Enemies, &e)
@@ -182,6 +186,9 @@ func (e *enemy) update(dt float64, win *pixelgl.Window, ind int) {
 		copy(Enemies[ind:], Enemies[ind+1:])
 		Enemies[len(Enemies)-1] = nil
 		Enemies = Enemies[:len(Enemies)-1]
+
+		// gift coins
+		addCoins(10)
 		return
 	}
 

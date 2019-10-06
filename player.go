@@ -133,5 +133,6 @@ func (p player) Atom(win *pixelgl.Window) {
 }
 
 func addCoins(delta int) {
+	PlaySound(coinPickupSound)
 	Player.coins += delta
 }

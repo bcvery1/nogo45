@@ -28,8 +28,7 @@ func coinCollision() {
 			Coins[len(Coins)-1] = nil
 			Coins = Coins[:len(Coins)-1]
 
-			Player.coins += 5
-			PlaySound(coinPickupSound)
+			addCoins(5)
 
 			return
 		}
