@@ -14,10 +14,19 @@ var (
 
 	movementControls upgrade
 	seeLevel         upgrade
-	slowEnemies      upgrade
-	mediumEnemies    upgrade
-	fastEnemies      upgrade
-	basicAttack      upgrade
+	jetpack          upgrade
+
+	slowEnemies   upgrade
+	mediumEnemies upgrade
+	fastEnemies   upgrade
+
+	basicAttack upgrade
+	bigAttack   upgrade
+	hardAttack  upgrade
+
+	gun            upgrade
+	rocketLauncher upgrade
+	atomBomb       upgrade
 )
 
 var (
@@ -124,7 +133,7 @@ func init() {
 		name: "Advanced enemies",
 		desc: "Add fast moving enemies to the map.\nEnemies drop coins on death",
 		cost: 150,
-		next: nil,
+		next: []*upgrade{&jetpack},
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e13") {
 				p, err := e.GetPoint()
@@ -155,6 +164,61 @@ func init() {
 		name: "Basic strike",
 		desc: "Allows the player to strike closeby enemies with mouse 1",
 		cost: 25,
+		next: []*upgrade{&bigAttack, &gun},
+	}
+
+	bigAttack = upgrade{
+		id:   uniqueID(),
+		name: "Large attack",
+		desc: "Increases area of effect of melee attack\nAttack more things with on swing",
+		cost: 60,
+		next: []*upgrade{&hardAttack},
+		after: func() {
+			Player.aoe = 25
+		},
+	}
+
+	hardAttack = upgrade{
+		id:   uniqueID(),
+		name: "Hard attack",
+		desc: "Greatly increases the damage your melee attack does",
+		cost: 150,
+		after: func() {
+			Player.attackDam = 50
+		},
+	}
+
+	gun = upgrade{
+		id:   uniqueID(),
+		name: "Gun",
+		desc: "Adds a second attack.  You can fire the gun with\nright-click",
+		cost: 200,
+		next: []*upgrade{&rocketLauncher},
+	}
+
+	rocketLauncher = upgrade{
+		id:   uniqueID(),
+		name: "Rocket launcher",
+		desc: "Replaces the gun with a larger, more\npowerful projectile launcher",
+		cost: 200,
+		next: []*upgrade{&atomBomb},
+	}
+
+	atomBomb = upgrade{
+		id:   uniqueID(),
+		name: "Atom Bomb",
+		desc: "I mean...it's an atom bomb\n\nReplaces the rocket launcher\n\nUse with caution!",
+		cost: 500,
+	}
+
+	jetpack = upgrade{
+		id:   uniqueID(),
+		name: "Jetpack",
+		desc: "Where we're going, we don't need roads.\n\nFloat above trees and water, fast.",
+		cost: 450,
+		after: func() {
+			speed = 16 * 16
+		},
 	}
 }
 

@@ -43,6 +43,7 @@ Mostly unordered list, priority may come later.
    - [ ] More powerful attack
    - [ ] Gun
    - [ ] Rocket launcher
+   - [ ] Atom bomb?
  - [x] Sound effects
  - [x] Music
  - [ ] Create release builds

@@ -42,7 +42,7 @@ func drawProjectiles(target pixel.Target) {
 func NewProjectile(pos, dir pixel.Vec, speed, dam, diameter float64, colour color.RGBA, colide bool) {
 	p := projectile{
 		pos:        pos,
-		dir:        dir,
+		dir:        dir.Unit(),
 		speed:      speed,
 		dam:        dam,
 		diameter:   diameter,
@@ -78,6 +78,18 @@ func (p *projectile) update(dt float64) bool {
 	if p.canCollide {
 		if pointCollides(p.pos) {
 			// hit an obsticle
+			return true
+		}
+	}
+
+	// Hit enemies
+	for _, e := range Enemies {
+		if e == nil {
+			continue
+		}
+
+		if pixel.C(p.pos, p.diameter/2).IntersectRect(e.collisionBox()) != pixel.ZV {
+			e.hurt(p.dam)
 			return true
 		}
 	}

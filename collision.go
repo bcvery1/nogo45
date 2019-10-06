@@ -11,7 +11,7 @@ var (
 )
 
 func rectCollides(r pixel.Rect) bool {
-	if debugOverride {
+	if debugOverride || jetpack.acquired {
 		return false
 	}
 

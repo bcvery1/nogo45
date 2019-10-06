@@ -141,7 +141,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 120
 		e.attackTimeout = time.Millisecond * 1300
 		e.attackSpeed = 16 * 4
-		e.projSpeed = 4
+		e.projSpeed = 16 * 4
 		e.attackDam = 6
 		e.requiredUpgrade = slowEnemies
 		e.health = 25
@@ -150,7 +150,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 180
 		e.attackTimeout = time.Millisecond * 900
 		e.attackSpeed = 16 * 5
-		e.projSpeed = 7
+		e.projSpeed = 16 * 7
 		e.attackDam = 12
 		e.requiredUpgrade = mediumEnemies
 		e.health = 35
@@ -159,7 +159,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 240
 		e.attackTimeout = time.Millisecond * 700
 		e.attackSpeed = 16 * 6
-		e.projSpeed = 8
+		e.projSpeed = 16 * 8
 		e.attackDam = 20
 		e.requiredUpgrade = fastEnemies
 		e.health = 50
@@ -219,7 +219,6 @@ func (e *enemy) draw(target pixel.Target) {
 		return
 	}
 
-	// ToDO animate
 	e.sprites[0].Draw(target, pixel.IM.Moved(e.pos).Rotated(e.pos, e.angle))
 }
 
