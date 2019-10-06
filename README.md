@@ -31,10 +31,17 @@ Mostly unordered list, priority may come later.
    - [x] Static enemy AI
    - [x] Moving melee enemy AI
    - [x] Ranged enemy AI
- - [ ] Character animation
-   - [ ] Extra sprites
-   - [ ] Animation logic
+ - [ ] ~~Character animation~~ <- Happy without this
+   - [ ] ~~Extra sprites~~
+   - [ ] ~~Animation logic~~
  - [ ] Animation for recieving a point/coin
+ - [ ] More upgrades:
+   - [ ] More health 1
+   - [ ] More health 2
+   - [ ] Bigger attack
+   - [ ] More powerful attack
+   - [ ] Gun
+   - [ ] Rocket launcher
  - [x] Sound effects
  - [x] Music
  - [ ] Create release builds
