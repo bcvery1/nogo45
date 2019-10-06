@@ -122,18 +122,21 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 120
 		e.attackTimeout = time.Millisecond * 1300
 		e.attackSpeed = 16 * 4
+		e.attackDam = 6
 		e.requiredUpgrade = slowEnemies
 	case 2:
 		e.speed = 16 * 4
 		e.searchRange = 180
 		e.attackTimeout = time.Millisecond * 900
 		e.attackSpeed = 16 * 5
+		e.attackDam = 12
 		e.requiredUpgrade = mediumEnemies
 	case 3:
 		e.speed = 16 * 5
 		e.searchRange = 240
 		e.attackTimeout = time.Millisecond * 700
 		e.attackSpeed = 16 * 6
+		e.attackDam = 20
 		e.requiredUpgrade = fastEnemies
 	}
 
@@ -186,6 +189,8 @@ func (e *enemy) attack() {
 	if e.lastAttack.Add(e.attackTimeout).Before(time.Now()) {
 		e.lastAttack = time.Now()
 		e.attackFunc(*e)
+
+		Player.hurt(e.attackDam)
 	}
 }
 
