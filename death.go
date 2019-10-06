@@ -29,7 +29,6 @@ func (d deathScreen) update(_ float64, win *pixelgl.Window) leveler {
 	return &d
 }
 
-// 930008
 func (d deathScreen) draw(target pixel.Target) {
 	pos := pixel.V(380, 540)
 	pos = cam.Unproject(pos)

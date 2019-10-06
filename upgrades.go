@@ -11,6 +11,12 @@ import (
 
 var (
 	acquiredUpgrades []*upgrade
+
+	movementControls upgrade
+	seeLevel         upgrade
+	slowEnemies      upgrade
+	mediumEnemies    upgrade
+	fastEnemies      upgrade
 )
 
 var (
@@ -20,35 +26,58 @@ var (
 	upgradeBackingHoverColourBlocked = color.RGBA{R: 0x83, G: 0x0, B: 0x00, A: 0xff}
 )
 
-var (
-	movementControls = &upgrade{
+func init() {
+	movementControls = upgrade{
 		id:   uniqueID(),
 		name: "Movement controls",
 		desc: "Gives the players character the ability to move",
 		cost: 1,
-		next: []*upgrade{seeLevel},
+		next: []*upgrade{&seeLevel},
 		after: func() {
 			DialoguePresenter.queue(afterMovement)
 		},
 	}
 
-	seeLevel = &upgrade{
+	seeLevel = upgrade{
 		id:   uniqueID(),
 		name: "Level",
 		desc: "Allows the player to see the level which includes coins",
 		cost: 4,
-		next: []*upgrade{slowEnemies, mediumEnemies, fastEnemies},
+		next: []*upgrade{&slowEnemies, &mediumEnemies, &fastEnemies},
 	}
 
-	slowEnemies = &upgrade{
+	slowEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Basic enemies",
 		desc: "Add slow moving enemies to the map.\nEnemies drop coins on death",
 		cost: 5,
 		next: []*upgrade{},
+		after: func() {
+			for _, e := range tmxMap.GetObjectByName("e11") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 1, 1)
+			}
+			for _, e := range tmxMap.GetObjectByName("e21") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 2, 1)
+			}
+			for _, e := range tmxMap.GetObjectByName("e31") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 3, 1)
+			}
+		},
 	}
 
-	mediumEnemies = &upgrade{
+	mediumEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Regular enemies",
 		desc: "Add enemies to the map which can move a bit faster.\nEnemies drop coins on death",
@@ -56,14 +85,14 @@ var (
 		next: nil,
 	}
 
-	fastEnemies = &upgrade{
+	fastEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Advanced enemies",
 		desc: "Add fast moving enemies to the map.\nEnemies drop coins on death",
 		cost: 35,
 		next: nil,
 	}
-)
+}
 
 type upgrade struct {
 	id       int
@@ -135,14 +164,14 @@ func availableUpgrades() []*upgrade {
 
 	for _, u := range acquiredUpgrades {
 		for _, n := range u.next {
-			if !n.acquired {
+			if n != nil && !n.acquired {
 				availUps = append(availUps, n)
 			}
 		}
 	}
 
 	if len(availUps) == 0 {
-		return []*upgrade{movementControls}
+		return []*upgrade{&movementControls}
 	}
 
 	return dedup(availUps)

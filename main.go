@@ -102,9 +102,6 @@ func run() {
 	}
 	camPos = startPoint
 
-	// TODO remove this debug line
-	Enemies = append(Enemies, NewEnemy())
-
 	last := time.Now()
 
 	for !win.Closed() {

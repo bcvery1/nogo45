@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="2">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="250" height="250" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="980">
  <tileset firstgid="1" name="level1" tilewidth="16" tileheight="16" tilecount="100" columns="10">
   <image source="tilesheet.png" width="160" height="160"/>
   <tile id="3">
@@ -545,6 +545,1455 @@
  </layer>
  <objectgroup id="4" name="objs">
   <object id="1" name="start" x="1968" y="1906">
+   <point/>
+  </object>
+  <object id="67" name="e11" x="1672" y="2232">
+   <point/>
+  </object>
+  <object id="68" name="e11" x="1565" y="2247">
+   <point/>
+  </object>
+  <object id="69" name="e11" x="1465" y="2071">
+   <point/>
+  </object>
+  <object id="70" name="e11" x="1654" y="1655">
+   <point/>
+  </object>
+  <object id="71" name="e11" x="1638" y="1687">
+   <point/>
+  </object>
+  <object id="72" name="e11" x="1992" y="1614">
+   <point/>
+  </object>
+  <object id="73" name="e11" x="2207" y="1587">
+   <point/>
+  </object>
+  <object id="74" name="e11" x="2339" y="1953">
+   <point/>
+  </object>
+  <object id="75" name="e11" x="2298" y="2016">
+   <point/>
+  </object>
+  <object id="76" name="e11" x="2092" y="2151">
+   <point/>
+  </object>
+  <object id="77" name="e11" x="1746" y="1907">
+   <point/>
+  </object>
+  <object id="78" name="e11" x="2772" y="1504">
+   <point/>
+  </object>
+  <object id="79" name="e11" x="3014" y="1817">
+   <point/>
+  </object>
+  <object id="80" name="e11" x="1050.55" y="3670.67">
+   <point/>
+  </object>
+  <object id="81" name="e11" x="953.576" y="3364.61">
+   <point/>
+  </object>
+  <object id="82" name="e11" x="786.909" y="3313.09">
+   <point/>
+  </object>
+  <object id="83" name="e11" x="717.212" y="3052.48">
+   <point/>
+  </object>
+  <object id="84" name="e11" x="289.939" y="2937.33">
+   <point/>
+  </object>
+  <object id="85" name="e11" x="162.667" y="2434.3">
+   <point/>
+  </object>
+  <object id="86" name="e11" x="253.576" y="1982.79">
+   <point/>
+  </object>
+  <object id="87" name="e11" x="1965.7" y="2758.55">
+   <point/>
+  </object>
+  <object id="88" name="e11" x="1862.67" y="3149.45">
+   <point/>
+  </object>
+  <object id="89" name="e11" x="2571.76" y="2931.27">
+   <point/>
+  </object>
+  <object id="90" name="e11" x="3380.85" y="2528.24">
+   <point/>
+  </object>
+  <object id="91" name="e11" x="3396" y="2094.91">
+   <point/>
+  </object>
+  <object id="92" name="e11" x="3323.27" y="988.848">
+   <point/>
+  </object>
+  <object id="93" name="e11" x="3362.67" y="1158.55">
+   <point/>
+  </object>
+  <object id="94" name="e11" x="3538.42" y="1152.48">
+   <point/>
+  </object>
+  <object id="95" name="e11" x="3674.79" y="170.667">
+   <point/>
+  </object>
+  <object id="96" name="e11" x="3096" y="294.909">
+   <point/>
+  </object>
+  <object id="97" name="e11" x="2865.7" y="713.091">
+   <point/>
+  </object>
+  <object id="98" name="e11" x="2656.61" y="494.909">
+   <point/>
+  </object>
+  <object id="99" name="e11" x="1859.64" y="379.758">
+   <point/>
+  </object>
+  <object id="100" name="e11" x="1738.42" y="767.636">
+   <point/>
+  </object>
+  <object id="101" name="e11" x="1280.85" y="1031.27">
+   <point/>
+  </object>
+  <object id="102" name="e11" x="823.273" y="1234.3">
+   <point/>
+  </object>
+  <object id="103" name="e11" x="2472" y="1850">
+   <point/>
+  </object>
+  <object id="104" name="e11" x="2305" y="1451">
+   <point/>
+  </object>
+  <object id="105" name="e11" x="2211" y="1531">
+   <point/>
+  </object>
+  <object id="106" name="e11" x="1847" y="2178">
+   <point/>
+  </object>
+  <object id="107" name="e11" x="2586" y="1571">
+   <point/>
+  </object>
+  <object id="108" name="e11" x="2969" y="1566">
+   <point/>
+  </object>
+  <object id="109" name="e11" x="3052" y="1486">
+   <point/>
+  </object>
+  <object id="110" name="e11" x="2791" y="1881">
+   <point/>
+  </object>
+  <object id="111" name="e11" x="2942" y="2068">
+   <point/>
+  </object>
+  <object id="112" name="e11" x="3226" y="2100">
+   <point/>
+  </object>
+  <object id="113" name="e11" x="3377" y="1691">
+   <point/>
+  </object>
+  <object id="114" name="e11" x="2860" y="2350">
+   <point/>
+  </object>
+  <object id="115" name="e11" x="2670" y="2215">
+   <point/>
+  </object>
+  <object id="116" name="e11" x="3297" y="2273">
+   <point/>
+  </object>
+  <object id="117" name="e11" x="3701" y="2584">
+   <point/>
+  </object>
+  <object id="118" name="e11" x="3298" y="3060">
+   <point/>
+  </object>
+  <object id="119" name="e11" x="2855" y="2754">
+   <point/>
+  </object>
+  <object id="161" name="e12" x="1620" y="3252">
+   <point/>
+  </object>
+  <object id="162" name="e12" x="1186" y="2986">
+   <point/>
+  </object>
+  <object id="163" name="e12" x="876" y="2270">
+   <point/>
+  </object>
+  <object id="164" name="e12" x="340" y="1762">
+   <point/>
+  </object>
+  <object id="165" name="e12" x="916" y="1170">
+   <point/>
+  </object>
+  <object id="166" name="e12" x="1488" y="1002">
+   <point/>
+  </object>
+  <object id="167" name="e12" x="1726" y="972">
+   <point/>
+  </object>
+  <object id="168" name="e12" x="2016" y="834">
+   <point/>
+  </object>
+  <object id="169" name="e12" x="1784" y="526">
+   <point/>
+  </object>
+  <object id="170" name="e12" x="2102" y="286">
+   <point/>
+  </object>
+  <object id="171" name="e12" x="2512" y="552">
+   <point/>
+  </object>
+  <object id="172" name="e12" x="2268" y="766">
+   <point/>
+  </object>
+  <object id="173" name="e12" x="2962" y="732">
+   <point/>
+  </object>
+  <object id="174" name="e12" x="3002" y="462">
+   <point/>
+  </object>
+  <object id="175" name="e12" x="3442" y="1002">
+   <point/>
+  </object>
+  <object id="176" name="e12" x="3270" y="1050">
+   <point/>
+  </object>
+  <object id="177" name="e12" x="3752" y="1718">
+   <point/>
+  </object>
+  <object id="178" name="e12" x="3662" y="2056">
+   <point/>
+  </object>
+  <object id="179" name="e12" x="3088" y="3026">
+   <point/>
+  </object>
+  <object id="180" name="e12" x="2836" y="2922">
+   <point/>
+  </object>
+  <object id="181" name="e12" x="2678" y="2780">
+   <point/>
+  </object>
+  <object id="182" name="e12" x="2710" y="2494">
+   <point/>
+  </object>
+  <object id="183" name="e12" x="3106" y="2504">
+   <point/>
+  </object>
+  <object id="184" name="e12" x="3540" y="2502">
+   <point/>
+  </object>
+  <object id="185" name="e12" x="3582" y="2952">
+   <point/>
+  </object>
+  <object id="186" name="e12" x="3762" y="2372">
+   <point/>
+  </object>
+  <object id="187" name="e12" x="3856" y="1864">
+   <point/>
+  </object>
+  <object id="188" name="e12" x="3666" y="1686">
+   <point/>
+  </object>
+  <object id="189" name="e12" x="3744" y="1226">
+   <point/>
+  </object>
+  <object id="190" name="e12" x="2488" y="672">
+   <point/>
+  </object>
+  <object id="191" name="e12" x="2346" y="594">
+   <point/>
+  </object>
+  <object id="192" name="e12" x="2168" y="2580">
+   <point/>
+  </object>
+  <object id="193" name="e12" x="2238" y="2810">
+   <point/>
+  </object>
+  <object id="194" name="e12" x="842" y="2026">
+   <point/>
+  </object>
+  <object id="195" name="e12" x="986" y="1562">
+   <point/>
+  </object>
+  <object id="196" name="e12" x="608" y="1372">
+   <point/>
+  </object>
+  <object id="197" name="e12" x="636" y="1184">
+   <point/>
+  </object>
+  <object id="198" name="e12" x="2086" y="1116">
+   <point/>
+  </object>
+  <object id="199" name="e12" x="3300" y="1910">
+   <point/>
+  </object>
+  <object id="200" name="e12" x="2886" y="2536">
+   <point/>
+  </object>
+  <object id="201" name="e12" x="2634" y="3208">
+   <point/>
+  </object>
+  <object id="254" name="e13" x="1502" y="3578">
+   <point/>
+  </object>
+  <object id="255" name="e13" x="1330" y="3268">
+   <point/>
+  </object>
+  <object id="256" name="e13" x="1180" y="3184">
+   <point/>
+  </object>
+  <object id="257" name="e13" x="1024" y="2960">
+   <point/>
+  </object>
+  <object id="258" name="e13" x="620" y="2736">
+   <point/>
+  </object>
+  <object id="259" name="e13" x="416" y="2982">
+   <point/>
+  </object>
+  <object id="260" name="e13" x="232" y="2926">
+   <point/>
+  </object>
+  <object id="261" name="e13" x="248" y="2820">
+   <point/>
+  </object>
+  <object id="262" name="e13" x="192" y="2734">
+   <point/>
+  </object>
+  <object id="263" name="e13" x="214" y="3592">
+   <point/>
+  </object>
+  <object id="264" name="e13" x="320" y="3668">
+   <point/>
+  </object>
+  <object id="265" name="e13" x="226" y="3626">
+   <point/>
+  </object>
+  <object id="266" name="e13" x="718" y="3820">
+   <point/>
+  </object>
+  <object id="267" name="e13" x="994" y="3804">
+   <point/>
+  </object>
+  <object id="268" name="e13" x="1466" y="3124">
+   <point/>
+  </object>
+  <object id="269" name="e13" x="1490" y="3058">
+   <point/>
+  </object>
+  <object id="270" name="e13" x="1262" y="2810">
+   <point/>
+  </object>
+  <object id="271" name="e13" x="1288" y="2730">
+   <point/>
+  </object>
+  <object id="272" name="e13" x="1002" y="2788">
+   <point/>
+  </object>
+  <object id="273" name="e13" x="928" y="2666">
+   <point/>
+  </object>
+  <object id="274" name="e13" x="880" y="2398">
+   <point/>
+  </object>
+  <object id="275" name="e13" x="1344" y="2390">
+   <point/>
+  </object>
+  <object id="276" name="e13" x="2298" y="2306">
+   <point/>
+  </object>
+  <object id="277" name="e13" x="1912" y="2550">
+   <point/>
+  </object>
+  <object id="278" name="e13" x="1160" y="1318">
+   <point/>
+  </object>
+  <object id="279" name="e13" x="118" y="1026">
+   <point/>
+  </object>
+  <object id="280" name="e13" x="196" y="1166">
+   <point/>
+  </object>
+  <object id="281" name="e13" x="134" y="1582">
+   <point/>
+  </object>
+  <object id="282" name="e13" x="392" y="1588">
+   <point/>
+  </object>
+  <object id="283" name="e13" x="812" y="1716">
+   <point/>
+  </object>
+  <object id="284" name="e13" x="866" y="2302">
+   <point/>
+  </object>
+  <object id="285" name="e13" x="616" y="2480">
+   <point/>
+  </object>
+  <object id="286" name="e13" x="2098" y="3080">
+   <point/>
+  </object>
+  <object id="287" name="e13" x="1896" y="2954">
+   <point/>
+  </object>
+  <object id="288" name="e13" x="3746" y="2642">
+   <point/>
+  </object>
+  <object id="289" name="e13" x="3342" y="2932">
+   <point/>
+  </object>
+  <object id="290" name="e13" x="3166" y="1700">
+   <point/>
+  </object>
+  <object id="291" name="e13" x="2860" y="166">
+   <point/>
+  </object>
+  <object id="292" name="e13" x="2738" y="218">
+   <point/>
+  </object>
+  <object id="293" name="e13" x="2446" y="154">
+   <point/>
+  </object>
+  <object id="294" name="e13" x="2490" y="166">
+   <point/>
+  </object>
+  <object id="295" name="e13" x="1862" y="446">
+   <point/>
+  </object>
+  <object id="296" name="e13" x="1622" y="262">
+   <point/>
+  </object>
+  <object id="297" name="e13" x="1436" y="1236">
+   <point/>
+  </object>
+  <object id="298" name="e13" x="908" y="626">
+   <point/>
+  </object>
+  <object id="299" name="e13" x="886.333" y="638">
+   <point/>
+  </object>
+  <object id="300" name="e13" x="906.667" y="643">
+   <point/>
+  </object>
+  <object id="301" name="e13" x="942.667" y="650">
+   <point/>
+  </object>
+  <object id="302" name="e13" x="937.333" y="692.667">
+   <point/>
+  </object>
+  <object id="303" name="e13" x="280.667" y="615.333">
+   <point/>
+  </object>
+  <object id="304" name="e13" x="248" y="649.667">
+   <point/>
+  </object>
+  <object id="305" name="e13" x="170.333" y="695.333">
+   <point/>
+  </object>
+  <object id="331" name="e21" x="1564.67" y="1411.33">
+   <point/>
+  </object>
+  <object id="332" name="e21" x="2106" y="1363.33">
+   <point/>
+  </object>
+  <object id="333" name="e21" x="1454" y="2158">
+   <point/>
+  </object>
+  <object id="334" name="e21" x="1451" y="2101">
+   <point/>
+  </object>
+  <object id="335" name="e21" x="3711" y="1624">
+   <point/>
+  </object>
+  <object id="336" name="e21" x="3670" y="1622">
+   <point/>
+  </object>
+  <object id="337" name="e21" x="3886" y="1349">
+   <point/>
+  </object>
+  <object id="338" name="e21" x="3868" y="1248">
+   <point/>
+  </object>
+  <object id="339" name="e21" x="2888" y="3106">
+   <point/>
+  </object>
+  <object id="340" name="e21" x="2968" y="3104">
+   <point/>
+  </object>
+  <object id="341" name="e21" x="2972" y="3202">
+   <point/>
+  </object>
+  <object id="342" name="e21" x="2885" y="3194">
+   <point/>
+  </object>
+  <object id="343" name="e21" x="2464" y="3009">
+   <point/>
+  </object>
+  <object id="344" name="e21" x="2459" y="2949">
+   <point/>
+  </object>
+  <object id="345" name="e21" x="510" y="910">
+   <point/>
+  </object>
+  <object id="346" name="e21" x="1386" y="782">
+   <point/>
+  </object>
+  <object id="347" name="e21" x="1444" y="692">
+   <point/>
+  </object>
+  <object id="348" name="e21" x="3412" y="282">
+   <point/>
+  </object>
+  <object id="349" name="e21" x="3464" y="276">
+   <point/>
+  </object>
+  <object id="350" name="e21" x="3516" y="274">
+   <point/>
+  </object>
+  <object id="351" name="e21" x="2162" y="930">
+   <point/>
+  </object>
+  <object id="352" name="e21" x="2164" y="814">
+   <point/>
+  </object>
+  <object id="353" name="e21" x="2836" y="2142">
+   <point/>
+  </object>
+  <object id="354" name="e21" x="2842" y="2066">
+   <point/>
+  </object>
+  <object id="355" name="e21" x="2474" y="3218">
+   <point/>
+  </object>
+  <object id="380" name="e22" x="3598.67" y="2312">
+   <point/>
+  </object>
+  <object id="381" name="e22" x="3597.33" y="2257.33">
+   <point/>
+  </object>
+  <object id="382" name="e22" x="3104" y="2738.67">
+   <point/>
+  </object>
+  <object id="383" name="e22" x="3106.67" y="2705.33">
+   <point/>
+  </object>
+  <object id="384" name="e22" x="2789.33" y="3320">
+   <point/>
+  </object>
+  <object id="385" name="e22" x="2748" y="3374.67">
+   <point/>
+  </object>
+  <object id="386" name="e22" x="2701.33" y="3414.67">
+   <point/>
+  </object>
+  <object id="387" name="e22" x="1954" y="96">
+   <point/>
+  </object>
+  <object id="388" name="e22" x="2006" y="94">
+   <point/>
+  </object>
+  <object id="389" name="e22" x="2068" y="96">
+   <point/>
+  </object>
+  <object id="390" name="e22" x="3450" y="88">
+   <point/>
+  </object>
+  <object id="391" name="e22" x="3498" y="84">
+   <point/>
+  </object>
+  <object id="392" name="e22" x="2320" y="806">
+   <point/>
+  </object>
+  <object id="393" name="e22" x="2368" y="808">
+   <point/>
+  </object>
+  <object id="394" name="e22" x="2416" y="800">
+   <point/>
+  </object>
+  <object id="395" name="e22" x="132" y="1414">
+   <point/>
+  </object>
+  <object id="396" name="e22" x="132" y="1342">
+   <point/>
+  </object>
+  <object id="397" name="e22" x="1142" y="1810">
+   <point/>
+  </object>
+  <object id="398" name="e22" x="1250" y="1786">
+   <point/>
+  </object>
+  <object id="399" name="e22" x="1370" y="1742">
+   <point/>
+  </object>
+  <object id="400" name="e22" x="158" y="2190">
+   <point/>
+  </object>
+  <object id="401" name="e22" x="82" y="2096">
+   <point/>
+  </object>
+  <object id="402" name="e22" x="86" y="2030">
+   <point/>
+  </object>
+  <object id="403" name="e22" x="88" y="1946">
+   <point/>
+  </object>
+  <object id="436" name="e32" x="954" y="3882">
+   <point/>
+  </object>
+  <object id="437" name="e32" x="1008" y="3880">
+   <point/>
+  </object>
+  <object id="438" name="e32" x="1070" y="3880">
+   <point/>
+  </object>
+  <object id="439" name="e32" x="1150" y="3874">
+   <point/>
+  </object>
+  <object id="440" name="e32" x="1246" y="3870">
+   <point/>
+  </object>
+  <object id="441" name="e32" x="42" y="2896">
+   <point/>
+  </object>
+  <object id="442" name="e32" x="42" y="2814">
+   <point/>
+  </object>
+  <object id="443" name="e32" x="1778" y="2318">
+   <point/>
+  </object>
+  <object id="444" name="e32" x="1886" y="2314">
+   <point/>
+  </object>
+  <object id="445" name="e32" x="1658" y="2320">
+   <point/>
+  </object>
+  <object id="446" name="e32" x="2458" y="2586">
+   <point/>
+  </object>
+  <object id="447" name="e32" x="2458" y="2642">
+   <point/>
+  </object>
+  <object id="448" name="e32" x="2338" y="2966">
+   <point/>
+  </object>
+  <object id="449" name="e32" x="2334" y="3030">
+   <point/>
+  </object>
+  <object id="450" name="e32" x="2340" y="3088">
+   <point/>
+  </object>
+  <object id="451" name="e32" x="624" y="1578">
+   <point/>
+  </object>
+  <object id="452" name="e32" x="658" y="1658">
+   <point/>
+  </object>
+  <object id="453" name="e32" x="522" y="1660">
+   <point/>
+  </object>
+  <object id="454" name="e32" x="524" y="1568">
+   <point/>
+  </object>
+  <object id="455" name="e32" x="360" y="2146">
+   <point/>
+  </object>
+  <object id="456" name="e32" x="390" y="2102">
+   <point/>
+  </object>
+  <object id="457" name="e32" x="414" y="2044">
+   <point/>
+  </object>
+  <object id="458" name="e32" x="432" y="1976">
+   <point/>
+  </object>
+  <object id="459" name="e32" x="520" y="3282">
+   <point/>
+  </object>
+  <object id="460" name="e32" x="510" y="3324">
+   <point/>
+  </object>
+  <object id="461" name="e32" x="548" y="3330">
+   <point/>
+  </object>
+  <object id="462" name="e32" x="564" y="3284">
+   <point/>
+  </object>
+  <object id="463" name="e32" x="2104" y="3386">
+   <point/>
+  </object>
+  <object id="464" name="e32" x="2078" y="3460">
+   <point/>
+  </object>
+  <object id="465" name="e32" x="2052" y="3532">
+   <point/>
+  </object>
+  <object id="466" name="e32" x="2028" y="3378">
+   <point/>
+  </object>
+  <object id="467" name="e32" x="2010" y="3446">
+   <point/>
+  </object>
+  <object id="502" name="e31" x="3037.33" y="2216">
+   <point/>
+  </object>
+  <object id="503" name="e31" x="2768" y="2245.33">
+   <point/>
+  </object>
+  <object id="504" name="e31" x="2976" y="2420">
+   <point/>
+  </object>
+  <object id="505" name="e31" x="2744" y="2846.67">
+   <point/>
+  </object>
+  <object id="506" name="e31" x="3082.67" y="3148">
+   <point/>
+  </object>
+  <object id="507" name="e31" x="3545.33" y="2821.33">
+   <point/>
+  </object>
+  <object id="508" name="e31" x="3301.33" y="2638.67">
+   <point/>
+  </object>
+  <object id="509" name="e31" x="3466.67" y="2166.67">
+   <point/>
+  </object>
+  <object id="510" name="e31" x="3824" y="1918.67">
+   <point/>
+  </object>
+  <object id="511" name="e31" x="3709.33" y="1826.67">
+   <point/>
+  </object>
+  <object id="512" name="e31" x="3610.67" y="696">
+   <point/>
+  </object>
+  <object id="513" name="e31" x="3666.67" y="693.333">
+   <point/>
+  </object>
+  <object id="514" name="e31" x="3717.33" y="685.333">
+   <point/>
+  </object>
+  <object id="515" name="e31" x="2565.33" y="296">
+   <point/>
+  </object>
+  <object id="516" name="e31" x="2420" y="434.667">
+   <point/>
+  </object>
+  <object id="517" name="e31" x="1806.67" y="166.667">
+   <point/>
+  </object>
+  <object id="518" name="e31" x="1788" y="624">
+   <point/>
+  </object>
+  <object id="519" name="e31" x="1878.67" y="1088">
+   <point/>
+  </object>
+  <object id="520" name="e31" x="1605.33" y="1080">
+   <point/>
+  </object>
+  <object id="521" name="e31" x="1037.33" y="1008">
+   <point/>
+  </object>
+  <object id="522" name="e31" x="966.667" y="1242.67">
+   <point/>
+  </object>
+  <object id="523" name="e31" x="772" y="1513.33">
+   <point/>
+  </object>
+  <object id="524" name="e31" x="624" y="1986.67">
+   <point/>
+  </object>
+  <object id="525" name="e31" x="1086.67" y="2448">
+   <point/>
+  </object>
+  <object id="526" name="e31" x="805.333" y="2746.67">
+   <point/>
+  </object>
+  <object id="527" name="e31" x="382.667" y="3110.67">
+   <point/>
+  </object>
+  <object id="528" name="e31" x="181.333" y="3314.67">
+   <point/>
+  </object>
+  <object id="529" name="e31" x="352" y="3390.67">
+   <point/>
+  </object>
+  <object id="530" name="e31" x="576" y="3554.67">
+   <point/>
+  </object>
+  <object id="531" name="e31" x="804" y="3404">
+   <point/>
+  </object>
+  <object id="532" name="e31" x="877.333" y="3112">
+   <point/>
+  </object>
+  <object id="533" name="e31" x="1294.67" y="3397.33">
+   <point/>
+  </object>
+  <object id="534" name="e31" x="1672" y="3394.67">
+   <point/>
+  </object>
+  <object id="535" name="e31" x="1736" y="2862.67">
+   <point/>
+  </object>
+  <object id="557" name="e22" x="3772" y="2096">
+   <point/>
+  </object>
+  <object id="558" name="e22" x="3629.33" y="2633.33">
+   <point/>
+  </object>
+  <object id="559" name="e22" x="3734.67" y="2845.33">
+   <point/>
+  </object>
+  <object id="560" name="e22" x="2769.33" y="2970.67">
+   <point/>
+  </object>
+  <object id="561" name="e22" x="2065.33" y="649.333">
+   <point/>
+  </object>
+  <object id="562" name="e22" x="1958.67" y="564">
+   <point/>
+  </object>
+  <object id="563" name="e22" x="1640" y="374.667">
+   <point/>
+  </object>
+  <object id="564" name="e22" x="1145.33" y="925.333">
+   <point/>
+  </object>
+  <object id="565" name="e22" x="880" y="1078.67">
+   <point/>
+  </object>
+  <object id="566" name="e22" x="390.667" y="1109.33">
+   <point/>
+  </object>
+  <object id="567" name="e22" x="245.333" y="1828">
+   <point/>
+  </object>
+  <object id="568" name="e22" x="682.667" y="2245.33">
+   <point/>
+  </object>
+  <object id="569" name="e22" x="1365.33" y="2433.33">
+   <point/>
+  </object>
+  <object id="570" name="e22" x="1274.67" y="2886.67">
+   <point/>
+  </object>
+  <object id="571" name="e22" x="498.667" y="3425.33">
+   <point/>
+  </object>
+  <object id="572" name="e22" x="268" y="3141.33">
+   <point/>
+  </object>
+  <object id="573" name="e22" x="588" y="2968">
+   <point/>
+  </object>
+  <object id="574" name="e22" x="1024" y="3494.67">
+   <point/>
+  </object>
+  <object id="575" name="e22" x="874.667" y="2836">
+   <point/>
+  </object>
+  <object id="576" name="e22" x="977.333" y="2065.33">
+   <point/>
+  </object>
+  <object id="577" name="e22" x="958.667" y="1792">
+   <point/>
+  </object>
+  <object id="599" name="e33" x="2160" y="3134.67">
+   <point/>
+  </object>
+  <object id="600" name="e33" x="1850.67" y="3417.33">
+   <point/>
+  </object>
+  <object id="601" name="e33" x="1720" y="3044">
+   <point/>
+  </object>
+  <object id="602" name="e33" x="1466.67" y="3762.67">
+   <point/>
+  </object>
+  <object id="603" name="e33" x="872" y="3230.67">
+   <point/>
+  </object>
+  <object id="604" name="e33" x="565.333" y="3733.33">
+   <point/>
+  </object>
+  <object id="605" name="e33" x="329.333" y="3237.33">
+   <point/>
+  </object>
+  <object id="606" name="e33" x="1168" y="2510.67">
+   <point/>
+  </object>
+  <object id="607" name="e33" x="1610.67" y="2514.67">
+   <point/>
+  </object>
+  <object id="608" name="e33" x="132" y="2545.33">
+   <point/>
+  </object>
+  <object id="609" name="e33" x="162.667" y="1697.33">
+   <point/>
+  </object>
+  <object id="610" name="e33" x="342.667" y="1309.33">
+   <point/>
+  </object>
+  <object id="611" name="e33" x="926.667" y="2126.67">
+   <point/>
+  </object>
+  <object id="612" name="e33" x="838.667" y="1888">
+   <point/>
+  </object>
+  <object id="613" name="e33" x="1166.67" y="1604">
+   <point/>
+  </object>
+  <object id="614" name="e33" x="1404" y="1452">
+   <point/>
+  </object>
+  <object id="615" name="e33" x="750.667" y="1304">
+   <point/>
+  </object>
+  <object id="616" name="e33" x="456" y="1220">
+   <point/>
+  </object>
+  <object id="617" name="e33" x="1381.33" y="2532">
+   <point/>
+  </object>
+  <object id="618" name="e33" x="2033.33" y="3185.33">
+   <point/>
+  </object>
+  <object id="619" name="e33" x="1657.33" y="3549.33">
+   <point/>
+  </object>
+  <object id="800" name="coin" x="1594" y="2343.33">
+   <point/>
+  </object>
+  <object id="801" name="coin" x="1622.67" y="2328.67">
+   <point/>
+  </object>
+  <object id="802" name="coin" x="1862.67" y="2340.67">
+   <point/>
+  </object>
+  <object id="803" name="coin" x="1788" y="2222">
+   <point/>
+  </object>
+  <object id="804" name="coin" x="2177.33" y="1537.33">
+   <point/>
+  </object>
+  <object id="805" name="coin" x="2296.67" y="1940.67">
+   <point/>
+  </object>
+  <object id="806" name="coin" x="2746.67" y="1366">
+   <point/>
+  </object>
+  <object id="807" name="coin" x="2807.33" y="1365.33">
+   <point/>
+  </object>
+  <object id="808" name="coin" x="3506" y="1880">
+   <point/>
+  </object>
+  <object id="809" name="coin" x="2924.67" y="3092">
+   <point/>
+  </object>
+  <object id="810" name="coin" x="2927.33" y="3122">
+   <point/>
+  </object>
+  <object id="811" name="coin" x="2925.33" y="3188.67">
+   <point/>
+  </object>
+  <object id="812" name="coin" x="2958" y="3132">
+   <point/>
+  </object>
+  <object id="813" name="coin" x="2927.33" y="3142">
+   <point/>
+  </object>
+  <object id="814" name="coin" x="2884.67" y="3132">
+   <point/>
+  </object>
+  <object id="815" name="coin" x="2596.67" y="3665.33">
+   <point/>
+  </object>
+  <object id="816" name="coin" x="2620" y="3669.33">
+   <point/>
+  </object>
+  <object id="817" name="coin" x="2654" y="3669.33">
+   <point/>
+  </object>
+  <object id="818" name="coin" x="2650.67" y="3622.67">
+   <point/>
+  </object>
+  <object id="819" name="coin" x="2612" y="3612.67">
+   <point/>
+  </object>
+  <object id="820" name="coin" x="2584.67" y="3590.67">
+   <point/>
+  </object>
+  <object id="821" name="coin" x="2639.33" y="3566">
+   <point/>
+  </object>
+  <object id="822" name="coin" x="2568" y="3542.67">
+   <point/>
+  </object>
+  <object id="823" name="coin" x="2697.33" y="3686.67">
+   <point/>
+  </object>
+  <object id="824" name="coin" x="1200" y="3906.67">
+   <point/>
+  </object>
+  <object id="825" name="coin" x="1125.33" y="3897.33">
+   <point/>
+  </object>
+  <object id="826" name="coin" x="1034.67" y="3905.33">
+   <point/>
+  </object>
+  <object id="827" name="coin" x="978.667" y="3902.67">
+   <point/>
+  </object>
+  <object id="828" name="coin" x="926.667" y="3905.33">
+   <point/>
+  </object>
+  <object id="829" name="coin" x="1089.33" y="3904">
+   <point/>
+  </object>
+  <object id="830" name="coin" x="1164" y="3902.67">
+   <point/>
+  </object>
+  <object id="831" name="coin" x="1273.33" y="3906.67">
+   <point/>
+  </object>
+  <object id="832" name="coin" x="1201.33" y="3850.67">
+   <point/>
+  </object>
+  <object id="833" name="coin" x="1405.33" y="3178.67">
+   <point/>
+  </object>
+  <object id="834" name="coin" x="1608" y="3365.33">
+   <point/>
+  </object>
+  <object id="835" name="coin" x="1945.33" y="3356">
+   <point/>
+  </object>
+  <object id="836" name="coin" x="2233.33" y="3234.67">
+   <point/>
+  </object>
+  <object id="837" name="coin" x="2078.67" y="3273.33">
+   <point/>
+  </object>
+  <object id="838" name="coin" x="1978.67" y="3285.33">
+   <point/>
+  </object>
+  <object id="839" name="coin" x="1985.33" y="3512">
+   <point/>
+  </object>
+  <object id="840" name="coin" x="801.333" y="2417.33">
+   <point/>
+  </object>
+  <object id="841" name="coin" x="762.667" y="2334.67">
+   <point/>
+  </object>
+  <object id="842" name="coin" x="269.333" y="2502.67">
+   <point/>
+  </object>
+  <object id="843" name="coin" x="148" y="2934.67">
+   <point/>
+  </object>
+  <object id="844" name="coin" x="121.333" y="3218.67">
+   <point/>
+  </object>
+  <object id="845" name="coin" x="1429.33" y="1518.67">
+   <point/>
+  </object>
+  <object id="846" name="coin" x="1269.33" y="1414.67">
+   <point/>
+  </object>
+  <object id="847" name="coin" x="191.5" y="641.5">
+   <point/>
+  </object>
+  <object id="848" name="coin" x="205.5" y="639.5">
+   <point/>
+  </object>
+  <object id="849" name="coin" x="217.5" y="650.5">
+   <point/>
+  </object>
+  <object id="850" name="coin" x="201.5" y="658">
+   <point/>
+  </object>
+  <object id="851" name="coin" x="204" y="681">
+   <point/>
+  </object>
+  <object id="852" name="coin" x="224.5" y="687.5">
+   <point/>
+  </object>
+  <object id="853" name="coin" x="228" y="651">
+   <point/>
+  </object>
+  <object id="854" name="coin" x="269.5" y="664.5">
+   <point/>
+  </object>
+  <object id="855" name="coin" x="280" y="623">
+   <point/>
+  </object>
+  <object id="856" name="coin" x="301.5" y="622">
+   <point/>
+  </object>
+  <object id="857" name="coin" x="209" y="711.5">
+   <point/>
+  </object>
+  <object id="858" name="coin" x="177" y="705.5">
+   <point/>
+  </object>
+  <object id="859" name="coin" x="145.5" y="700.5">
+   <point/>
+  </object>
+  <object id="860" name="coin" x="152.5" y="653">
+   <point/>
+  </object>
+  <object id="861" name="coin" x="240" y="704.5">
+   <point/>
+  </object>
+  <object id="862" name="coin" x="259.5" y="671">
+   <point/>
+  </object>
+  <object id="863" name="coin" x="563.5" y="772.5">
+   <point/>
+  </object>
+  <object id="864" name="coin" x="615" y="765.5">
+   <point/>
+  </object>
+  <object id="865" name="coin" x="689.5" y="754">
+   <point/>
+  </object>
+  <object id="866" name="coin" x="713" y="814">
+   <point/>
+  </object>
+  <object id="867" name="coin" x="611.5" y="806">
+   <point/>
+  </object>
+  <object id="868" name="coin" x="650" y="784">
+   <point/>
+  </object>
+  <object id="869" name="coin" x="325" y="920.5">
+   <point/>
+  </object>
+  <object id="870" name="coin" x="200" y="983">
+   <point/>
+  </object>
+  <object id="871" name="coin" x="96" y="947">
+   <point/>
+  </object>
+  <object id="872" name="coin" x="152" y="1196">
+   <point/>
+  </object>
+  <object id="873" name="coin" x="1271.33" y="902.667">
+   <point/>
+  </object>
+  <object id="874" name="coin" x="1425.33" y="974.667">
+   <point/>
+  </object>
+  <object id="875" name="coin" x="2172" y="464">
+   <point/>
+  </object>
+  <object id="876" name="coin" x="2176" y="498">
+   <point/>
+  </object>
+  <object id="877" name="coin" x="2179" y="532">
+   <point/>
+  </object>
+  <object id="878" name="coin" x="3163" y="959">
+   <point/>
+  </object>
+  <object id="879" name="coin" x="3176" y="1006">
+   <point/>
+  </object>
+  <object id="880" name="coin" x="3173" y="1039">
+   <point/>
+  </object>
+  <object id="881" name="coin" x="3230" y="934">
+   <point/>
+  </object>
+  <object id="882" name="coin" x="3220" y="1019">
+   <point/>
+  </object>
+  <object id="883" name="coin" x="3221" y="1067">
+   <point/>
+  </object>
+  <object id="884" name="coin" x="3238" y="927">
+   <point/>
+  </object>
+  <object id="885" name="coin" x="3278" y="983">
+   <point/>
+  </object>
+  <object id="886" name="coin" x="3223" y="963">
+   <point/>
+  </object>
+  <object id="887" name="coin" x="3754" y="1477">
+   <point/>
+  </object>
+  <object id="888" name="coin" x="3922" y="1519">
+   <point/>
+  </object>
+  <object id="889" name="coin" x="3206" y="1802">
+   <point/>
+  </object>
+  <object id="890" name="coin" x="2837" y="2197">
+   <point/>
+  </object>
+  <object id="891" name="coin" x="2885" y="2121">
+   <point/>
+  </object>
+  <object id="892" name="coin" x="2514" y="2857">
+   <point/>
+  </object>
+  <object id="893" name="coin" x="2517" y="2777">
+   <point/>
+  </object>
+  <object id="894" name="coin" x="2216" y="2354">
+   <point/>
+  </object>
+  <object id="895" name="coin" x="2155" y="2377">
+   <point/>
+  </object>
+  <object id="896" name="coin" x="2091" y="2392">
+   <point/>
+  </object>
+  <object id="897" name="coin" x="2052" y="2436">
+   <point/>
+  </object>
+  <object id="898" name="coin" x="2009" y="2484">
+   <point/>
+  </object>
+  <object id="899" name="coin" x="2050" y="2463">
+   <point/>
+  </object>
+  <object id="900" name="coin" x="2084" y="2423">
+   <point/>
+  </object>
+  <object id="901" name="coin" x="2137" y="2390">
+   <point/>
+  </object>
+  <object id="902" name="coin" x="2198" y="2390">
+   <point/>
+  </object>
+  <object id="903" name="coin" x="2255" y="2343">
+   <point/>
+  </object>
+  <object id="904" name="coin" x="2169" y="2406">
+   <point/>
+  </object>
+  <object id="905" name="coin" x="2088" y="2439">
+   <point/>
+  </object>
+  <object id="906" name="coin" x="2072" y="2476">
+   <point/>
+  </object>
+  <object id="907" name="coin" x="2113" y="2429">
+   <point/>
+  </object>
+  <object id="908" name="coin" x="2181" y="2468">
+   <point/>
+  </object>
+  <object id="909" name="coin" x="2096" y="2503">
+   <point/>
+  </object>
+  <object id="910" name="coin" x="2127" y="2464">
+   <point/>
+  </object>
+  <object id="911" name="coin" x="2207" y="2409">
+   <point/>
+  </object>
+  <object id="912" name="coin" x="2240" y="2384">
+   <point/>
+  </object>
+  <object id="913" name="coin" x="1861" y="3190">
+   <point/>
+  </object>
+  <object id="914" name="coin" x="1888" y="3183">
+   <point/>
+  </object>
+  <object id="915" name="coin" x="1253" y="3244">
+   <point/>
+  </object>
+  <object id="916" name="coin" x="1116" y="3305">
+   <point/>
+  </object>
+  <object id="917" name="coin" x="571" y="3407">
+   <point/>
+  </object>
+  <object id="918" name="coin" x="142" y="3780">
+   <point/>
+  </object>
+  <object id="919" name="coin" x="138" y="3736">
+   <point/>
+  </object>
+  <object id="920" name="coin" x="142" y="3660">
+   <point/>
+  </object>
+  <object id="921" name="coin" x="145" y="3604">
+   <point/>
+  </object>
+  <object id="922" name="coin" x="79" y="3313">
+   <point/>
+  </object>
+  <object id="923" name="coin" x="534" y="3152">
+   <point/>
+  </object>
+  <object id="924" name="coin" x="588" y="3305">
+   <point/>
+  </object>
+  <object id="925" name="coin" x="519" y="3349">
+   <point/>
+  </object>
+  <object id="926" name="coin" x="476" y="3301">
+   <point/>
+  </object>
+  <object id="927" name="coin" x="567" y="3205">
+   <point/>
+  </object>
+  <object id="928" name="coin" x="1493" y="2123">
+   <point/>
+  </object>
+  <object id="929" name="coin" x="1508" y="2089">
+   <point/>
+  </object>
+  <object id="930" name="coin" x="1468" y="1331">
+   <point/>
+  </object>
+  <object id="931" name="coin" x="1311" y="1142">
+   <point/>
+  </object>
+  <object id="932" name="coin" x="1478" y="856">
+   <point/>
+  </object>
+  <object id="933" name="coin" x="2308" y="730">
+   <point/>
+  </object>
+  <object id="934" name="coin" x="2346" y="738">
+   <point/>
+  </object>
+  <object id="935" name="coin" x="2393" y="732">
+   <point/>
+  </object>
+  <object id="936" name="coin" x="2464" y="813">
+   <point/>
+  </object>
+  <object id="937" name="coin" x="2452" y="769">
+   <point/>
+  </object>
+  <object id="938" name="coin" x="3417" y="110">
+   <point/>
+  </object>
+  <object id="939" name="coin" x="3534" y="110">
+   <point/>
+  </object>
+  <object id="940" name="coin" x="3288" y="549">
+   <point/>
+  </object>
+  <object id="941" name="coin" x="3291" y="564">
+   <point/>
+  </object>
+  <object id="942" name="coin" x="3289" y="579">
+   <point/>
+  </object>
+  <object id="943" name="coin" x="3291" y="592">
+   <point/>
+  </object>
+  <object id="944" name="coin" x="3292" y="601">
+   <point/>
+  </object>
+  <object id="945" name="coin" x="1589" y="117">
+   <point/>
+  </object>
+  <object id="946" name="coin" x="1584" y="132">
+   <point/>
+  </object>
+  <object id="947" name="coin" x="1585" y="144">
+   <point/>
+  </object>
+  <object id="948" name="coin" x="1587" y="165">
+   <point/>
+  </object>
+  <object id="949" name="coin" x="1594" y="178">
+   <point/>
+  </object>
+  <object id="950" name="coin" x="1606" y="172">
+   <point/>
+  </object>
+  <object id="951" name="coin" x="1609" y="149">
+   <point/>
+  </object>
+  <object id="952" name="coin" x="1620" y="146">
+   <point/>
+  </object>
+  <object id="953" name="coin" x="1633" y="156">
+   <point/>
+  </object>
+  <object id="954" name="coin" x="1626" y="173">
+   <point/>
+  </object>
+  <object id="955" name="coin" x="3661" y="1879">
+   <point/>
+  </object>
+  <object id="956" name="coin" x="3651" y="1926">
+   <point/>
+  </object>
+  <object id="957" name="coin" x="3702" y="2464">
+   <point/>
+  </object>
+  <object id="958" name="coin" x="3535" y="2681">
+   <point/>
+  </object>
+  <object id="959" name="coin" x="3495" y="2638">
+   <point/>
+  </object>
+  <object id="960" name="coin" x="3155" y="2926">
+   <point/>
+  </object>
+  <object id="961" name="coin" x="3142" y="2872">
+   <point/>
+  </object>
+  <object id="962" name="coin" x="2654" y="3045">
+   <point/>
+  </object>
+  <object id="963" name="coin" x="2638" y="2984">
+   <point/>
+  </object>
+  <object id="964" name="coin" x="2705" y="2986">
+   <point/>
+  </object>
+  <object id="965" name="coin" x="1872" y="2813">
+   <point/>
+  </object>
+  <object id="966" name="coin" x="1798" y="2875">
+   <point/>
+  </object>
+  <object id="967" name="coin" x="1675" y="2954">
+   <point/>
+  </object>
+  <object id="968" name="coin" x="1780" y="2966">
+   <point/>
+  </object>
+  <object id="969" name="coin" x="1999" y="2871">
+   <point/>
+  </object>
+  <object id="970" name="coin" x="1364" y="3282">
+   <point/>
+  </object>
+  <object id="971" name="coin" x="343" y="2934">
+   <point/>
+  </object>
+  <object id="972" name="coin" x="318" y="2554">
+   <point/>
+  </object>
+  <object id="973" name="coin" x="538" y="2662">
+   <point/>
+  </object>
+  <object id="974" name="coin" x="162" y="1782">
+   <point/>
+  </object>
+  <object id="975" name="coin" x="214" y="1712">
+   <point/>
+  </object>
+  <object id="976" name="coin" x="294" y="1888">
+   <point/>
+  </object>
+  <object id="977" name="coin" x="256" y="2092">
+   <point/>
+  </object>
+  <object id="978" name="coin" x="600" y="1770">
+   <point/>
+  </object>
+  <object id="979" name="coin" x="128" y="1454">
    <point/>
   </object>
  </objectgroup>

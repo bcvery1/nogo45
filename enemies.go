@@ -47,45 +47,97 @@ func drawEnemeies(target pixel.Target) {
 }
 
 type enemy struct {
-	id              int
-	static          bool
-	pos             pixel.Vec
-	size            pixel.Vec
-	searchRange     float64
-	attackRange     float64
-	attackTimeout   time.Duration
-	attackFunc      func(e enemy)
-	lastAttack      time.Time
-	sprites         []*pixel.Sprite
-	speed           float64
-	attackSpeed     float64
-	idleThreshold   float64
-	requiredUpgrade *upgrade
-	lastDir         pixel.Vec
-	angle           float64
+	id int
+
+	pos     pixel.Vec
+	speed   float64
+	lastDir pixel.Vec
+	angle   float64
+
+	searchRange float64
+
+	attackRange   float64
+	attackTimeout time.Duration
+	attackFunc    func(e enemy)
+	lastAttack    time.Time
+	attackSpeed   float64
+	attackDam     float64
+
+	sprites       []*pixel.Sprite
+	static        bool
+	idleThreshold float64
+
+	requiredUpgrade upgrade
 }
 
-// TODO take params not hard coded test values
-func NewEnemy() *enemy {
+// 1 - melee
+// 2 - ranged
+// 3 - tracking
+func NewEnemy(pos pixel.Vec, t, lvl int) {
 	e := enemy{
-		id:              uniqueID(),
-		static:          false,
-		pos:             camPos.Add(pixel.V(150, 150)),
-		size:            pixel.V(16, 16),
-		searchRange:     128,
-		attackRange:     4,
-		sprites:         enemy11Sprites,
-		speed:           16 * 3,
-		attackSpeed:     16 * 4,
-		attackTimeout:   time.Second * 2,
-		attackFunc:      meleeAttack,
-		idleThreshold:   .9,
-		requiredUpgrade: movementControls,
+		id:            uniqueID(),
+		pos:           pos,
+		idleThreshold: 0.95,
 	}
 
-	fmt.Println(e.pos)
+	switch t {
+	case 1:
+		e.attackRange = 4
+		e.attackFunc = meleeAttack
+		e.static = false
 
-	return &e
+		e.sprites = enemy11Sprites
+		if lvl == 2 {
+			e.sprites = enemy12Sprites
+		} else if lvl == 3 {
+			e.sprites = enemy13Sprites
+		}
+	case 2:
+		e.attackRange = 100
+		e.attackFunc = rangedAttack
+		e.static = true
+
+		e.sprites = enemy21Sprites
+		if lvl == 2 {
+			e.sprites = enemy22Sprites
+		} else if lvl == 3 {
+			e.sprites = enemy23Sprites
+		}
+	case 3:
+		e.attackRange = 80
+		e.attackFunc = trackingAttack
+		e.static = false
+
+		e.sprites = enemy31Sprites
+		if lvl == 2 {
+			e.sprites = enemy32Sprites
+		} else if lvl == 3 {
+			e.sprites = enemy33Sprites
+		}
+	}
+
+	switch lvl {
+	case 1:
+		e.speed = 16 * 2
+		e.searchRange = 120
+		e.attackTimeout = time.Millisecond * 1300
+		e.attackSpeed = 16 * 4
+		e.requiredUpgrade = slowEnemies
+	case 2:
+		e.speed = 16 * 4
+		e.searchRange = 180
+		e.attackTimeout = time.Millisecond * 900
+		e.attackSpeed = 16 * 5
+		e.requiredUpgrade = mediumEnemies
+	case 3:
+		e.speed = 16 * 5
+		e.searchRange = 240
+		e.attackTimeout = time.Millisecond * 700
+		e.attackSpeed = 16 * 6
+		e.requiredUpgrade = fastEnemies
+	}
+
+	Enemies = append(Enemies, &e)
 }
 
 func (e *enemy) update(dt float64, win *pixelgl.Window) leveler {
@@ -137,8 +189,8 @@ func (e enemy) collisionBox() pixel.Rect {
 	return pixel.R(
 		e.pos.X,
 		e.pos.Y,
-		e.pos.Add(e.size).X,
-		e.pos.Add(e.size).Y,
+		e.pos.Add(pixel.V(16, 16)).X,
+		e.pos.Add(pixel.V(16, 16)).Y,
 	)
 }
 
