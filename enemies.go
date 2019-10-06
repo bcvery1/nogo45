@@ -54,7 +54,7 @@ type enemy struct {
 	searchRange     float64
 	attackRange     float64
 	attackTimeout   time.Duration
-	attackFunc      func()
+	attackFunc      func(e enemy)
 	lastAttack      time.Time
 	sprites         []*pixel.Sprite
 	speed           float64
@@ -129,7 +129,7 @@ func (e *enemy) draw(target pixel.Target) {
 func (e *enemy) attack() {
 	if e.lastAttack.Add(e.attackTimeout).Before(time.Now()) {
 		e.lastAttack = time.Now()
-		e.attackFunc()
+		e.attackFunc(*e)
 	}
 }
 
@@ -184,14 +184,14 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 
 // **************** Attack functions *************************** \\
 
-func meleeAttack() {
+func meleeAttack(e enemy) {
 	fmt.Println("Melee attack")
 }
 
-func rangedAttack() {
+func rangedAttack(e enemy) {
 	fmt.Println("Ranged attack")
 }
 
-func trackingAttack() {
+func trackingAttack(e enemy) {
 	fmt.Println("Tracking attack")
 }
