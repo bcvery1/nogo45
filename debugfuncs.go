@@ -42,4 +42,6 @@ func debug1(win *pixelgl.Window) {
 	}
 }
 
-func debugsound() {}
+func debugsound() {
+	SetupAudio()
+}

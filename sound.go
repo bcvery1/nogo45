@@ -29,6 +29,8 @@ const (
 	deniedSound      Track = "denied"
 	projectile1Sound Track = "projectile1"
 	projectile2Sound Track = "projectile2"
+	rumbleSound      Track = "rumble"
+	explosionSound   Track = "explosion"
 )
 
 func SetupAudio() {
@@ -62,6 +64,8 @@ func SetupAudio() {
 	loadSound(deniedSound)
 	loadSound(projectile1Sound)
 	loadSound(projectile2Sound)
+	loadSound(rumbleSound)
+	loadSound(explosionSound)
 }
 
 func loadSound(sound Track) {

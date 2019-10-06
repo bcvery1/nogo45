@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"image/color"
 
 	"github.com/faiface/pixel"
@@ -129,7 +128,7 @@ func (p player) rocket(win *pixelgl.Window) {
 }
 
 func (p player) Atom(win *pixelgl.Window) {
-	fmt.Println("boom")
+	atom(win)
 }
 
 func addCoins(delta int) {

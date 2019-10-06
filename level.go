@@ -74,7 +74,7 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 		return currentLvl
 	}
 
-	if win.JustPressed(pixelgl.KeyU) {
+	if win.JustPressed(pixelgl.KeyU) && Nuke == nil {
 		firstOpen.Do(func() {
 			addCoins(1)
 		})

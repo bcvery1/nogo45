@@ -124,6 +124,11 @@ func run() {
 		_ = DialoguePresenter.update(dt, win)
 		DialoguePresenter.draw(win)
 
+		if n := updateAtom(dt); n == &DeathScreen {
+			nextLvl = &DeathScreen
+		}
+		drawAtom(win)
+
 		debug1(win)
 
 		win.Update()
