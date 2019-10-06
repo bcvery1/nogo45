@@ -66,9 +66,8 @@ type enemy struct {
 	projSpeed     float64
 	attackDam     float64
 
-	sprites       []*pixel.Sprite
-	static        bool
-	idleThreshold float64
+	sprites []*pixel.Sprite
+	static  bool
 
 	requiredUpgrade upgrade
 }
@@ -78,9 +77,8 @@ type enemy struct {
 // 3 - tracking
 func NewEnemy(pos pixel.Vec, t, lvl int) {
 	e := enemy{
-		id:            uniqueID(),
-		pos:           pos,
-		idleThreshold: 0.95,
+		id:  uniqueID(),
+		pos: pos,
 	}
 
 	switch t {
@@ -209,8 +207,8 @@ func (e *enemy) update(dt float64, win *pixelgl.Window, ind int) {
 		return
 	}
 
-	if rand.Float64() > e.idleThreshold {
-		e.randomWalk(false, dt)
+	if r := rand.Float64(); r > 0.95 {
+		e.randomWalk(false, dt, r)
 	}
 
 	return
@@ -258,21 +256,21 @@ func (e *enemy) moveToPlayer(dt float64) {
 		return
 	}
 
-	e.randomWalk(true, dt)
+	e.randomWalk(true, dt, rand.Float64())
 }
 
-func (e *enemy) randomWalk(attacking bool, dt float64) {
-	switch i := rand.Float64(); {
-	case i < 0.005:
+func (e *enemy) randomWalk(attacking bool, dt float64, r float64) {
+	switch {
+	case r > 0.999:
 		e.lastDir = up
 		e.angle = math.Pi / 2
-	case i < .01:
+	case r > 0.998:
 		e.lastDir = down
 		e.angle = (math.Pi * 3) / 2
-	case i < .015:
+	case r > 0.997:
 		e.lastDir = left
 		e.angle = math.Pi
-	case i < .02:
+	case r > 0.996:
 		e.lastDir = right
 		e.angle = 0
 	}
