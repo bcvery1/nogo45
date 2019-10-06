@@ -35,7 +35,7 @@ Mostly unordered list, priority may come later.
  - [ ] ~~Character animation~~ <- Happy without this
    - [ ] ~~Extra sprites~~
    - [ ] ~~Animation logic~~
- - [ ] Animation for recieving a point/coin
+ - [ ] ~~Animation for recieving a point/coin~~ <- ran out of time
  - [x] More upgrades:
    - [x] More health 1
    - [x] More health 2
@@ -46,9 +46,9 @@ Mostly unordered list, priority may come later.
    - [x] Atom bomb ~~?~~ <- *yes*
  - [x] Sound effects
  - [x] Music
- - [ ] Create release builds
+ - [x] Create release builds
    - [x] Find somewhere to build Windows
- - [ ] Submit to [Ludum Dare sith](ldjam.com)
+ - [ ] Submit to [Ludum Dare](ldjam.com)
  - [ ] Celebratory drink and cigar
 
 ## Lessons learned
