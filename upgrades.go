@@ -60,7 +60,7 @@ func init() {
 		id:   uniqueID(),
 		name: "Basic enemies",
 		desc: "Add slow moving enemies to the map.\nEnemies drop coins on death",
-		cost: 5,
+		cost: 15,
 		next: []*upgrade{},
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e11") {
@@ -91,7 +91,7 @@ func init() {
 		id:   uniqueID(),
 		name: "Regular enemies",
 		desc: "Add enemies to the map which can move a bit faster.\nEnemies drop coins on death",
-		cost: 25,
+		cost: 60,
 		next: nil,
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e12") {
@@ -122,7 +122,7 @@ func init() {
 		id:   uniqueID(),
 		name: "Advanced enemies",
 		desc: "Add fast moving enemies to the map.\nEnemies drop coins on death",
-		cost: 35,
+		cost: 150,
 		next: nil,
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e13") {
