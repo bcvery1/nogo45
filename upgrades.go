@@ -27,6 +27,9 @@ var (
 	gun            upgrade
 	rocketLauncher upgrade
 	atomBomb       upgrade
+
+	extraHealth  upgrade
+	extraHealth2 upgrade
 )
 
 var (
@@ -53,7 +56,7 @@ func init() {
 		name: "Level",
 		desc: "Allows the player to see the level which includes coins",
 		cost: 4,
-		next: []*upgrade{&slowEnemies, &mediumEnemies},
+		next: []*upgrade{&slowEnemies, &mediumEnemies, &extraHealth},
 		after: func() {
 			for _, obj := range tmxMap.GetObjectByName("coin") {
 				p, err := obj.GetPoint()
@@ -63,6 +66,27 @@ func init() {
 
 				Coins = append(Coins, &coin{pos: p})
 			}
+		},
+	}
+
+	extraHealth = upgrade{
+		id:   uniqueID(),
+		name: "Extra health",
+		desc: "Increases max health points",
+		cost: 300,
+		next: []*upgrade{&extraHealth2},
+		after: func() {
+			Player.maxHealth = 150
+		},
+	}
+
+	extraHealth2 = upgrade{
+		id:   uniqueID(),
+		name: "Extra health 2",
+		desc: "Increases max health points",
+		cost: 300,
+		after: func() {
+			Player.maxHealth = 150
 		},
 	}
 

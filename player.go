@@ -16,6 +16,7 @@ const (
 var (
 	Player = player{
 		health:    100,
+		maxHealth: 100,
 		attackDam: 15,
 		aoe:       15,
 	}
@@ -29,6 +30,7 @@ type player struct {
 	coins     int
 	angle     float64
 	health    float64
+	maxHealth float64
 	attackDam float64
 	aoe       float64
 }
@@ -39,12 +41,12 @@ func (p *player) update(dt float64, win *pixelgl.Window) leveler {
 		return &DeathScreen
 	}
 
-	if p.health < 100 {
+	if p.health < p.maxHealth {
 		p.health += healRate * dt
 	}
 
-	if p.health > 100 {
-		p.health = 100
+	if p.health > p.maxHealth {
+		p.health = p.maxHealth
 	}
 
 	// check for coin collisions
