@@ -187,3 +187,11 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 func meleeAttack() {
 	fmt.Println("Melee attack")
 }
+
+func rangedAttack() {
+	fmt.Println("Ranged attack")
+}
+
+func trackingAttack() {
+	fmt.Println("Tracking attack")
+}
