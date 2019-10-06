@@ -1,8 +1,6 @@
 package main
 
 import (
-	"math"
-
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
 )
@@ -21,7 +19,7 @@ type player struct {
 }
 
 func (p *player) update(dt float64, win *pixelgl.Window) leveler {
-	p.angle = winBounds.Center().To(win.MousePosition()).Angle() - math.Pi/2
+	p.angle = winBounds.Center().To(win.MousePosition()).Angle()
 	return currentLvl
 }
 

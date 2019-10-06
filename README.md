@@ -21,8 +21,8 @@ Mostly unordered list, priority may come later.
  - [x] ToDo list
  - [x] Dialogue
  - [x] Upgrade screen
- - [ ] Character static sprite
- - [ ] Enemy static sprites
+ - [x] Character static sprite
+ - [x] Enemy static sprites
  - [x] Level design
    - [x] Tiles spritesheet
    - [x] Create level
