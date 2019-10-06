@@ -29,6 +29,7 @@ func coinCollision() {
 			Coins = Coins[:len(Coins)-1]
 
 			Player.coins += 5
+			PlaySound(coinPickupSound)
 
 			return
 		}

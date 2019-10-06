@@ -53,6 +53,8 @@ func (u *upgradeScreen) update(dt float64, win *pixelgl.Window) leveler {
 
 				// a panel was clicked
 				u.avail = availableUpgrades()
+			} else {
+				PlaySound(deniedSound)
 			}
 		}
 	}

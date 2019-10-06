@@ -211,6 +211,8 @@ func (u upgrade) draw(target pixel.Target, ind, hoveringOn int) {
 }
 
 func (u *upgrade) acquire() {
+	PlaySound(coinPickupSound)
+
 	if u.cost > Player.coins {
 		return
 	}

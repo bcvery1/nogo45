@@ -72,6 +72,7 @@ func (p player) collisionBox() pixel.Rect {
 
 func (p *player) hurt(delta float64) {
 	p.health -= delta
+	PlaySound(hurtSound)
 }
 
 func (p player) pos() pixel.Vec {
@@ -79,14 +80,13 @@ func (p player) pos() pixel.Vec {
 }
 
 func (p player) attack(win *pixelgl.Window) {
+	PlaySound(attackSound)
+
 	const aoeSize = 15
 
 	clickedPos := win.MousePosition()
 	toClick := winBounds.Center().To(clickedPos).Unit().Scaled(aoeSize * 1.5).Add(p.pos())
 	aoe := pixel.C(toClick, aoeSize)
-
-	tmpIMD.Push(toClick)
-	tmpIMD.Circle(aoeSize, 0)
 
 	for _, e := range Enemies {
 		if aoe.IntersectRect(e.collisionBox()) != pixel.ZV {

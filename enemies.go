@@ -287,13 +287,16 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 // **************** Attack functions *************************** \\
 
 func meleeAttack(e enemy) {
+	PlaySound(attackSound)
 	Player.hurt(e.attackDam)
 }
 
 func rangedAttack(e enemy) {
+	PlaySound(projectile1Sound)
 	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, true)
 }
 
 func trackingAttack(e enemy) {
+	PlaySound(projectile2Sound)
 	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, false)
 }
