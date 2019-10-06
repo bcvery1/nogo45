@@ -48,8 +48,8 @@ Mostly unordered list, priority may come later.
  - [x] Music
  - [x] Create release builds
    - [x] Find somewhere to build Windows
- - [ ] Submit to [Ludum Dare](ldjam.com)
- - [ ] Celebratory drink and cigar
+ - [x] Submit to [Ludum Dare](ldjam.com)
+ - [x] Celebratory drink and cigar
 
 ## Lessons learned
 To do after event!
