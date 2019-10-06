@@ -29,10 +29,19 @@ func (h *hud) draw(target pixel.Target) {
 
 	t := text.New(unproj, atlas)
 	t.Color = defaultTextColour
+	if currentLvl == &UpgradeScreen {
+		// To show on dark background
+		t.Color = color.RGBA{
+			R: 0xff,
+			G: 0xff,
+			B: 0xff,
+			A: 0xff,
+		}
+	}
 	_, _ = t.WriteString(strconv.Itoa(Player.coins))
 	t.Draw(target, pixel.IM.Moved(pixel.V(-4, -24)))
 
-	if Player.health < 100 && Player.health > 0 {
+	if Player.health < 100 && Player.health > 0 && currentLvl == &Level {
 		imd := imdraw.New(nil)
 
 		// border
