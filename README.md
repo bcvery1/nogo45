@@ -27,10 +27,10 @@ Mostly unordered list, priority may come later.
    - [x] Tiles spritesheet
    - [x] Create level
    - [x] Collision change for individual sprites on [TilePix](github.com/bcvery1/tilepix)
- - [ ] Enemies AI
-   - [ ] Static enemy AI
-   - [ ] Moving melee enemy AI
-   - [ ] Ranged enemy AI
+ - [x] Enemies AI
+   - [x] Static enemy AI
+   - [x] Moving melee enemy AI
+   - [x] Ranged enemy AI
  - [ ] Character animation
    - [ ] Extra sprites
    - [ ] Animation logic
