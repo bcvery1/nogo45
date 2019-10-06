@@ -93,7 +93,7 @@ func init() {
 	slowEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Basic enemies",
-		desc: "Add slow moving enemies to the map.\nEnemies grant coins on death",
+		desc: "Add slow moving enemies to the map.\nEnemies grant 10 coins on death",
 		cost: 15,
 		next: []*upgrade{&basicAttack},
 		after: func() {
@@ -124,7 +124,7 @@ func init() {
 	mediumEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Regular enemies",
-		desc: "Add enemies to the map which can move a bit faster.\nEnemies grant coins on death",
+		desc: "Add enemies to the map which can move a bit faster.\nEnemies grant 15 coins on death",
 		cost: 60,
 		next: []*upgrade{&fastEnemies},
 		after: func() {
@@ -155,7 +155,7 @@ func init() {
 	fastEnemies = upgrade{
 		id:   uniqueID(),
 		name: "Advanced enemies",
-		desc: "Add fast moving enemies to the map.\nEnemies grant coins on death",
+		desc: "Add fast moving enemies to the map.\nEnemies grant 20 coins on death",
 		cost: 150,
 		next: []*upgrade{&jetpack},
 		after: func() {
