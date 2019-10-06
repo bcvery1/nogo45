@@ -37,13 +37,13 @@ Mostly unordered list, priority may come later.
    - [ ] ~~Animation logic~~
  - [ ] Animation for recieving a point/coin
  - [ ] More upgrades:
-   - [ ] More health 1
-   - [ ] More health 2
-   - [ ] Bigger attack
-   - [ ] More powerful attack
-   - [ ] Gun
-   - [ ] Rocket launcher
-   - [ ] Atom bomb?
+   - [x] More health 1
+   - [x] More health 2
+   - [x] Bigger attack
+   - [x] More powerful attack
+   - [x] Gun
+   - [x] Rocket launcher
+   - [ ] Atom bomb ~~?~~ <- *yes*
  - [x] Sound effects
  - [x] Music
  - [ ] Create release builds
