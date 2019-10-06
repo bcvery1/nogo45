@@ -23,14 +23,16 @@ var (
 type Track string
 
 const (
-	hurtSound        Track = "hurt"
-	attackSound      Track = "attack1"
-	coinPickupSound  Track = "coinpickup"
-	deniedSound      Track = "denied"
-	projectile1Sound Track = "projectile1"
-	projectile2Sound Track = "projectile2"
-	rumbleSound      Track = "rumble"
-	explosionSound   Track = "explosion"
+	hurtSound           Track = "hurt"
+	attackSound         Track = "attack1"
+	coinPickupSound     Track = "coinpickup"
+	deniedSound         Track = "denied"
+	projectile1Sound    Track = "projectile1"
+	projectile2Sound    Track = "projectile2"
+	rumbleSound         Track = "rumble"
+	explosionSound      Track = "explosion"
+	rocketLauncherSound Track = "rocket"
+	gunSound            Track = "gun"
 )
 
 func SetupAudio() {
@@ -66,6 +68,8 @@ func SetupAudio() {
 	loadSound(projectile2Sound)
 	loadSound(rumbleSound)
 	loadSound(explosionSound)
+	loadSound(rocketLauncherSound)
+	loadSound(gunSound)
 }
 
 func loadSound(sound Track) {

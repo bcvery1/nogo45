@@ -118,11 +118,13 @@ func (p player) attack(win *pixelgl.Window) {
 }
 
 func (p player) gun(win *pixelgl.Window) {
+	PlaySound(gunSound)
 	dir := winBounds.Center().To(win.MousePosition())
 	NewProjectile(p.pos().Add(dir.Unit().Scaled(1.1*16)), winBounds.Center().To(win.MousePosition()), 16*8, 25, 4, colornames.Black, true)
 }
 
 func (p player) rocket(win *pixelgl.Window) {
+	PlaySound(rocketLauncherSound)
 	dir := winBounds.Center().To(win.MousePosition())
 	NewProjectile(p.pos().Add(dir.Unit().Scaled(1.1*16)), winBounds.Center().To(win.MousePosition()), 16*6, 50, 8, colornames.Black, true)
 }
