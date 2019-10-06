@@ -27,6 +27,9 @@ func (p *player) update(dt float64, win *pixelgl.Window) leveler {
 		return &DeathScreen
 	}
 
+	// check for coin collisions
+	coinCollision()
+
 	p.angle = winBounds.Center().To(win.MousePosition()).Angle()
 	return currentLvl
 }

@@ -44,6 +44,16 @@ func init() {
 		desc: "Allows the player to see the level which includes coins",
 		cost: 4,
 		next: []*upgrade{&slowEnemies, &mediumEnemies, &fastEnemies},
+		after: func() {
+			for _, obj := range tmxMap.GetObjectByName("coin") {
+				p, err := obj.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+
+				Coins = append(Coins, &coin{pos: p})
+			}
+		},
 	}
 
 	slowEnemies = upgrade{
@@ -83,6 +93,29 @@ func init() {
 		desc: "Add enemies to the map which can move a bit faster.\nEnemies drop coins on death",
 		cost: 25,
 		next: nil,
+		after: func() {
+			for _, e := range tmxMap.GetObjectByName("e12") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 1, 2)
+			}
+			for _, e := range tmxMap.GetObjectByName("e22") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 2, 2)
+			}
+			for _, e := range tmxMap.GetObjectByName("e32") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 3, 2)
+			}
+		},
 	}
 
 	fastEnemies = upgrade{
@@ -91,6 +124,29 @@ func init() {
 		desc: "Add fast moving enemies to the map.\nEnemies drop coins on death",
 		cost: 35,
 		next: nil,
+		after: func() {
+			for _, e := range tmxMap.GetObjectByName("e13") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 1, 3)
+			}
+			for _, e := range tmxMap.GetObjectByName("e23") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 2, 3)
+			}
+			for _, e := range tmxMap.GetObjectByName("e33") {
+				p, err := e.GetPoint()
+				if err != nil {
+					panic(err)
+				}
+				NewEnemy(p, 3, 3)
+			}
+		},
 	}
 }
 

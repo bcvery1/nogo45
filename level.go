@@ -141,6 +141,8 @@ func (l *level) draw(target pixel.Target) {
 		if err := tmxMap.DrawAll(target, color.Transparent, pixel.IM); err != nil {
 			panic(err)
 		}
+
+		drawCoins(target)
 	}
 
 	Player.draw(target)
