@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"image/color"
 	"math"
 	"math/rand"
 	"time"
@@ -62,6 +62,8 @@ type enemy struct {
 	attackFunc    func(e enemy)
 	lastAttack    time.Time
 	attackSpeed   float64
+	attackColour  color.RGBA
+	projSpeed     float64
 	attackDam     float64
 
 	sprites       []*pixel.Sprite
@@ -85,6 +87,12 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 	case 1:
 		e.attackRange = 4
 		e.attackFunc = meleeAttack
+		e.attackColour = color.RGBA{
+			R: 0x20,
+			G: 0x00,
+			B: 0x02,
+			A: 0xaa,
+		}
 		e.static = false
 
 		e.sprites = enemy11Sprites
@@ -96,6 +104,12 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 	case 2:
 		e.attackRange = 100
 		e.attackFunc = rangedAttack
+		e.attackColour = color.RGBA{
+			R: 0x28,
+			G: 0x00,
+			B: 0x02,
+			A: 0xaa,
+		}
 		e.static = true
 
 		e.sprites = enemy21Sprites
@@ -107,6 +121,12 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 	case 3:
 		e.attackRange = 80
 		e.attackFunc = trackingAttack
+		e.attackColour = color.RGBA{
+			R: 0x3a,
+			G: 0x00,
+			B: 0x03,
+			A: 0xaa,
+		}
 		e.static = false
 
 		e.sprites = enemy31Sprites
@@ -123,6 +143,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 120
 		e.attackTimeout = time.Millisecond * 1300
 		e.attackSpeed = 16 * 4
+		e.projSpeed = 4
 		e.attackDam = 6
 		e.requiredUpgrade = slowEnemies
 		e.health = 25
@@ -131,6 +152,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 180
 		e.attackTimeout = time.Millisecond * 900
 		e.attackSpeed = 16 * 5
+		e.projSpeed = 7
 		e.attackDam = 12
 		e.requiredUpgrade = mediumEnemies
 		e.health = 35
@@ -139,6 +161,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.searchRange = 240
 		e.attackTimeout = time.Millisecond * 700
 		e.attackSpeed = 16 * 6
+		e.projSpeed = 8
 		e.attackDam = 20
 		e.requiredUpgrade = fastEnemies
 		e.health = 50
@@ -205,8 +228,6 @@ func (e *enemy) attack() {
 	if e.lastAttack.Add(e.attackTimeout).Before(time.Now()) {
 		e.lastAttack = time.Now()
 		e.attackFunc(*e)
-
-		Player.hurt(e.attackDam)
 	}
 }
 
@@ -266,13 +287,13 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 // **************** Attack functions *************************** \\
 
 func meleeAttack(e enemy) {
-	fmt.Println("Melee attack")
+	Player.hurt(e.attackDam)
 }
 
 func rangedAttack(e enemy) {
-	fmt.Println("Ranged attack")
+	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, true)
 }
 
 func trackingAttack(e enemy) {
-	fmt.Println("Tracking attack")
+	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, false)
 }

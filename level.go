@@ -86,6 +86,7 @@ func (l *level) update(dt float64, win *pixelgl.Window) leveler {
 	}
 
 	_ = updateEnemies(dt, win)
+	updateProjectiles(dt)
 
 	if !movementControls.acquired {
 		return currentLvl
@@ -150,4 +151,5 @@ func (l *level) draw(target pixel.Target) {
 	Player.draw(target)
 
 	drawEnemeies(target)
+	drawProjectiles(target)
 }
