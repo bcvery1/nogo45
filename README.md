@@ -35,8 +35,8 @@ Mostly unordered list, priority may come later.
    - [ ] Extra sprites
    - [ ] Animation logic
  - [ ] Animation for recieving a point/coin
- - [ ] Sound effects
- - [ ] Music
+ - [x] Sound effects
+ - [x] Music
  - [ ] Create release builds
    - [x] Find somewhere to build Windows
  - [ ] Submit to [Ludum Dare sith](ldjam.com)

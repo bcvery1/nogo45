@@ -187,6 +187,11 @@ func (e *enemy) update(dt float64, win *pixelgl.Window, ind int) {
 		return
 	}
 
+	// Skip if off screen
+	if !winBounds.Contains(cam.Project(e.pos)) {
+		return
+	}
+
 	if pixel.C(e.pos, e.attackRange).IntersectRect(Player.collisionBox()) != pixel.ZV {
 		// Can attack
 		e.attack()
