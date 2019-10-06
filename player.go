@@ -1,6 +1,8 @@
 package main
 
 import (
+	"image/color"
+
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
 )
@@ -87,6 +89,13 @@ func (p player) attack(win *pixelgl.Window) {
 	clickedPos := win.MousePosition()
 	toClick := winBounds.Center().To(clickedPos).Unit().Scaled(aoeSize * 1.5).Add(p.pos())
 	aoe := pixel.C(toClick, aoeSize)
+
+	NewSwipe(toClick, winBounds.Center().To(clickedPos), aoeSize, color.RGBA{
+		R: 0x66,
+		G: 0xbb,
+		B: 0x66,
+		A: 0xbb,
+	})
 
 	for _, e := range Enemies {
 		if aoe.IntersectRect(e.collisionBox()) != pixel.ZV {

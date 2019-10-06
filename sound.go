@@ -34,20 +34,17 @@ const (
 func SetupAudio() {
 	mainTrack, err := os.Open(filepath.Join(binPath, "assets/audio/mainTrack.wav"))
 	if err != nil {
-		panic(err)
 		hasErrored = true
 		return
 	}
 
 	streamer, format, err := wav.Decode(mainTrack)
 	if err != nil {
-		panic(err)
 		hasErrored = true
 		return
 	}
 
 	if err := speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10)); err != nil {
-		panic(err)
 		hasErrored = true
 		return
 	}
@@ -96,7 +93,6 @@ func PlaySound(sound Track) {
 
 	b, ok := sounds[sound]
 	if !ok {
-		fmt.Printf("not found %v\n", sound)
 		return
 	}
 

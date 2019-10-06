@@ -41,3 +41,5 @@ func debug1(win *pixelgl.Window) {
 		addCoins(100)
 	}
 }
+
+func debugsound() {}

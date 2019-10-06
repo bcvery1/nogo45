@@ -104,7 +104,7 @@ func run() {
 
 	last := time.Now()
 
-	SetupAudio()
+	debugsound()
 
 	for !win.Closed() {
 		dt := time.Since(last).Seconds()

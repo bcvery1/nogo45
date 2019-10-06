@@ -291,15 +291,33 @@ func (e *enemy) randomWalk(attacking bool, dt float64, r float64) {
 
 func meleeAttack(e enemy) {
 	PlaySound(attackSound)
+	NewSwipe(e.pos, e.pos.To(Player.pos()), 16, color.RGBA{
+		R: 0xaa,
+		G: 0x33,
+		B: 0x33,
+		A: 0xaa,
+	})
 	Player.hurt(e.attackDam)
 }
 
 func rangedAttack(e enemy) {
 	PlaySound(projectile1Sound)
+	NewSwipe(e.pos, e.pos.To(Player.pos()), 8, color.RGBA{
+		R: 0xff,
+		G: 0x88,
+		B: 0x88,
+		A: 0xff,
+	})
 	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, true)
 }
 
 func trackingAttack(e enemy) {
 	PlaySound(projectile2Sound)
+	NewSwipe(e.pos, e.pos.To(Player.pos()), 8, color.RGBA{
+		R: 0xff,
+		G: 0x88,
+		B: 0x88,
+		A: 0xff,
+	})
 	NewProjectile(e.pos, e.pos.To(Player.pos()), e.projSpeed, e.attackDam, 6, e.attackColour, false)
 }
