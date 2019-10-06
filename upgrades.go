@@ -17,6 +17,7 @@ var (
 	slowEnemies      upgrade
 	mediumEnemies    upgrade
 	fastEnemies      upgrade
+	basicAttack      upgrade
 )
 
 var (
@@ -43,7 +44,7 @@ func init() {
 		name: "Level",
 		desc: "Allows the player to see the level which includes coins",
 		cost: 4,
-		next: []*upgrade{&slowEnemies, &mediumEnemies, &fastEnemies},
+		next: []*upgrade{&slowEnemies, &mediumEnemies},
 		after: func() {
 			for _, obj := range tmxMap.GetObjectByName("coin") {
 				p, err := obj.GetPoint()
@@ -61,7 +62,7 @@ func init() {
 		name: "Basic enemies",
 		desc: "Add slow moving enemies to the map.\nEnemies drop coins on death",
 		cost: 15,
-		next: []*upgrade{},
+		next: []*upgrade{&basicAttack},
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e11") {
 				p, err := e.GetPoint()
@@ -92,7 +93,7 @@ func init() {
 		name: "Regular enemies",
 		desc: "Add enemies to the map which can move a bit faster.\nEnemies drop coins on death",
 		cost: 60,
-		next: nil,
+		next: []*upgrade{&fastEnemies},
 		after: func() {
 			for _, e := range tmxMap.GetObjectByName("e12") {
 				p, err := e.GetPoint()
@@ -147,6 +148,13 @@ func init() {
 				NewEnemy(p, 3, 3)
 			}
 		},
+	}
+
+	basicAttack = upgrade{
+		id:   uniqueID(),
+		name: "Basic strike",
+		desc: "Allows the player to strike closeby enemies with mouse 1",
+		cost: 25,
 	}
 }
 

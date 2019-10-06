@@ -5,9 +5,14 @@ import (
 	"github.com/faiface/pixel/pixelgl"
 )
 
+const (
+	healRate = 0.5
+)
+
 var (
 	Player = player{
-		health: 100,
+		health:    100,
+		attackDam: 15,
 	}
 
 	playerPics []*pixel.Sprite
@@ -16,9 +21,10 @@ var (
 )
 
 type player struct {
-	coins  int
-	angle  float64
-	health float64
+	coins     int
+	angle     float64
+	health    float64
+	attackDam float64
 }
 
 func (p *player) update(dt float64, win *pixelgl.Window) leveler {
@@ -27,17 +33,30 @@ func (p *player) update(dt float64, win *pixelgl.Window) leveler {
 		return &DeathScreen
 	}
 
+	if p.health < 100 {
+		p.health += healRate * dt
+	}
+
+	if p.health > 100 {
+		p.health = 100
+	}
+
 	// check for coin collisions
 	coinCollision()
 
 	p.angle = winBounds.Center().To(win.MousePosition()).Angle()
+
+	// Attack
+	if basicAttack.acquired && win.JustPressed(pixelgl.MouseButton1) {
+		p.attack(win)
+	}
 	return currentLvl
 }
 
 func (p *player) draw(target pixel.Target) {
 	// TODO animate
-	unproj := cam.Unproject(winBounds.Center().Sub(playerSize))
-	playerPics[0].Draw(target, pixel.IM.Moved(unproj).Rotated(unproj, p.angle))
+	pos := p.pos()
+	playerPics[0].Draw(target, pixel.IM.Moved(pos).Rotated(pos, p.angle))
 }
 
 func (p player) collisionBox() pixel.Rect {
@@ -53,6 +72,27 @@ func (p player) collisionBox() pixel.Rect {
 
 func (p *player) hurt(delta float64) {
 	p.health -= delta
+}
+
+func (p player) pos() pixel.Vec {
+	return cam.Unproject(winBounds.Center().Sub(playerSize))
+}
+
+func (p player) attack(win *pixelgl.Window) {
+	const aoeSize = 15
+
+	clickedPos := win.MousePosition()
+	toClick := winBounds.Center().To(clickedPos).Unit().Scaled(aoeSize * 1.5).Add(p.pos())
+	aoe := pixel.C(toClick, aoeSize)
+
+	tmpIMD.Push(toClick)
+	tmpIMD.Circle(aoeSize, 0)
+
+	for _, e := range Enemies {
+		if aoe.IntersectRect(e.collisionBox()) != pixel.ZV {
+			e.hurt(p.attackDam)
+		}
+	}
 }
 
 func addCoins(delta int) {

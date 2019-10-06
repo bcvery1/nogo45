@@ -36,4 +36,8 @@ func debug1(win *pixelgl.Window) {
 		fmt.Println("killing")
 		Player.health = -1
 	}
+
+	if win.JustPressed(pixelgl.Key5) {
+		addCoins(100)
+	}
 }

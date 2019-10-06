@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/faiface/pixel"
+	"github.com/faiface/pixel/imdraw"
 	"github.com/faiface/pixel/pixelgl"
 	"github.com/faiface/pixel/text"
 	"github.com/sirupsen/logrus"
@@ -28,6 +29,8 @@ var (
 	atlas *text.Atlas
 
 	binPath string
+
+	tmpIMD *imdraw.IMDraw
 )
 
 func init() {
@@ -104,6 +107,8 @@ func run() {
 
 	last := time.Now()
 
+	tmpIMD = imdraw.New(nil)
+
 	for !win.Closed() {
 		dt := time.Since(last).Seconds()
 		last = time.Now()
@@ -123,6 +128,8 @@ func run() {
 		DialoguePresenter.draw(win)
 
 		debug1(win)
+
+		//tmpIMD.Draw(win)
 
 		win.Update()
 

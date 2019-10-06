@@ -34,8 +34,8 @@ var (
 )
 
 func updateEnemies(dt float64, win *pixelgl.Window) leveler {
-	for _, e := range Enemies {
-		_ = e.update(dt, win)
+	for i, e := range Enemies {
+		e.update(dt, win, i)
 	}
 	return currentLvl
 }
@@ -55,6 +55,7 @@ type enemy struct {
 	angle   float64
 
 	searchRange float64
+	health      float64
 
 	attackRange   float64
 	attackTimeout time.Duration
@@ -124,6 +125,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackSpeed = 16 * 4
 		e.attackDam = 6
 		e.requiredUpgrade = slowEnemies
+		e.health = 25
 	case 2:
 		e.speed = 16 * 4
 		e.searchRange = 180
@@ -131,6 +133,7 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackSpeed = 16 * 5
 		e.attackDam = 12
 		e.requiredUpgrade = mediumEnemies
+		e.health = 35
 	case 3:
 		e.speed = 16 * 5
 		e.searchRange = 240
@@ -138,20 +141,33 @@ func NewEnemy(pos pixel.Vec, t, lvl int) {
 		e.attackSpeed = 16 * 6
 		e.attackDam = 20
 		e.requiredUpgrade = fastEnemies
+		e.health = 50
 	}
 
 	Enemies = append(Enemies, &e)
 }
 
-func (e *enemy) update(dt float64, win *pixelgl.Window) leveler {
+func (e *enemy) update(dt float64, win *pixelgl.Window, ind int) {
+	if e == nil {
+		return
+	}
+
 	if !e.requiredUpgrade.acquired {
-		return currentLvl
+		return
+	}
+
+	if e.health <= 0 {
+		// Dead remove
+		copy(Enemies[ind:], Enemies[ind+1:])
+		Enemies[len(Enemies)-1] = nil
+		Enemies = Enemies[:len(Enemies)-1]
+		return
 	}
 
 	if pixel.C(e.pos, e.attackRange).IntersectRect(Player.collisionBox()) != pixel.ZV {
 		// Can attack
 		e.attack()
-		return currentLvl
+		return
 	}
 
 	if pixel.C(e.pos, e.searchRange).IntersectRect(Player.collisionBox()) != pixel.ZV {
@@ -162,14 +178,14 @@ func (e *enemy) update(dt float64, win *pixelgl.Window) leveler {
 			e.moveToPlayer(dt)
 		}
 
-		return currentLvl
+		return
 	}
 
 	if rand.Float64() > e.idleThreshold {
 		e.randomWalk(false, dt)
 	}
 
-	return currentLvl
+	return
 }
 
 func (e *enemy) draw(target pixel.Target) {
@@ -192,6 +208,10 @@ func (e *enemy) attack() {
 
 		Player.hurt(e.attackDam)
 	}
+}
+
+func (e *enemy) hurt(delta float64) {
+	e.health -= delta
 }
 
 func (e enemy) collisionBox() pixel.Rect {
