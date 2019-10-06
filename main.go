@@ -116,9 +116,6 @@ func run() {
 		nextLvl := currentLvl.update(dt, win)
 		currentLvl.draw(win)
 
-		_ = updateEnemies(dt, win)
-		drawEnemeies(win)
-
 		_ = HUD.update(dt, win)
 		HUD.draw(win)
 
