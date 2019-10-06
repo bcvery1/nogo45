@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"math/rand"
+	"time"
 
 	"github.com/faiface/pixel"
 	"github.com/faiface/pixel/pixelgl"
@@ -18,7 +20,17 @@ var (
 var (
 	Enemies []*enemy
 
-	enemy1Sprites []*pixel.Sprite
+	enemy11Sprites []*pixel.Sprite
+	enemy12Sprites []*pixel.Sprite
+	enemy13Sprites []*pixel.Sprite
+
+	enemy21Sprites []*pixel.Sprite
+	enemy22Sprites []*pixel.Sprite
+	enemy23Sprites []*pixel.Sprite
+
+	enemy31Sprites []*pixel.Sprite
+	enemy32Sprites []*pixel.Sprite
+	enemy33Sprites []*pixel.Sprite
 )
 
 func updateEnemies(dt float64, win *pixelgl.Window) leveler {
@@ -41,12 +53,16 @@ type enemy struct {
 	size            pixel.Vec
 	searchRange     float64
 	attackRange     float64
+	attackTimeout   time.Duration
+	attackFunc      func()
+	lastAttack      time.Time
 	sprites         []*pixel.Sprite
 	speed           float64
 	attackSpeed     float64
 	idleThreshold   float64
 	requiredUpgrade *upgrade
 	lastDir         pixel.Vec
+	angle           float64
 }
 
 // TODO take params not hard coded test values
@@ -58,9 +74,11 @@ func NewEnemy() *enemy {
 		size:            pixel.V(16, 16),
 		searchRange:     128,
 		attackRange:     4,
-		sprites:         enemy1Sprites,
+		sprites:         enemy11Sprites,
 		speed:           16 * 3,
 		attackSpeed:     16 * 4,
+		attackTimeout:   time.Second * 2,
+		attackFunc:      meleeAttack,
 		idleThreshold:   .9,
 		requiredUpgrade: movementControls,
 	}
@@ -77,6 +95,7 @@ func (e *enemy) update(dt float64, win *pixelgl.Window) leveler {
 
 	if pixel.C(e.pos, e.attackRange).IntersectRect(Player.collisionBox()) != pixel.ZV {
 		// Can attack
+		e.attack()
 		return currentLvl
 	}
 
@@ -104,7 +123,14 @@ func (e *enemy) draw(target pixel.Target) {
 	}
 
 	// ToDO animate
-	e.sprites[0].Draw(target, pixel.IM.Moved(e.pos))
+	e.sprites[0].Draw(target, pixel.IM.Moved(e.pos).Rotated(e.pos, e.angle))
+}
+
+func (e *enemy) attack() {
+	if e.lastAttack.Add(e.attackTimeout).Before(time.Now()) {
+		e.lastAttack = time.Now()
+		e.attackFunc()
+	}
 }
 
 func (e enemy) collisionBox() pixel.Rect {
@@ -121,6 +147,7 @@ func (e *enemy) moveToPlayer(dt float64) {
 	toPlayerV := e.pos.To(Player.collisionBox().Center()).Unit().Scaled(e.attackSpeed * dt)
 	if !lineCollides(toPlayer) && !rectCollides(e.collisionBox().Moved(toPlayerV)) {
 		e.pos = e.pos.Add(toPlayerV)
+		e.angle = toPlayerV.Angle()
 		return
 	}
 
@@ -131,12 +158,16 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 	switch i := rand.Float64(); {
 	case i < 0.005:
 		e.lastDir = up
+		e.angle = math.Pi / 2
 	case i < .01:
 		e.lastDir = down
+		e.angle = (math.Pi * 3) / 2
 	case i < .015:
 		e.lastDir = left
+		e.angle = math.Pi
 	case i < .02:
 		e.lastDir = right
+		e.angle = 0
 	}
 
 	s := e.speed * dt
@@ -149,4 +180,10 @@ func (e *enemy) randomWalk(attacking bool, dt float64) {
 	if !rectCollides(e.collisionBox().Moved(dir)) {
 		e.pos = e.pos.Add(dir)
 	}
+}
+
+// **************** Attack functions *************************** \\
+
+func meleeAttack() {
+	fmt.Println("Melee attack")
 }

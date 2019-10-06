@@ -49,8 +49,34 @@ func init() {
 		pixel.NewSprite(tilemapPic, spritePos(0, 0)),
 	}
 
-	enemy1Sprites = []*pixel.Sprite{
+	enemy11Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(0, 1)),
+	}
+	enemy12Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(1, 1)),
+	}
+	enemy13Sprites = []*pixel.Sprite{
 		pixel.NewSprite(tilemapPic, spritePos(2, 1)),
+	}
+
+	enemy21Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(0, 2)),
+	}
+	enemy22Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(1, 2)),
+	}
+	enemy23Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(2, 2)),
+	}
+
+	enemy31Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(0, 3)),
+	}
+	enemy32Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(1, 3)),
+	}
+	enemy33Sprites = []*pixel.Sprite{
+		pixel.NewSprite(tilemapPic, spritePos(2, 3)),
 	}
 
 	rand.Seed(time.Now().UnixNano())
