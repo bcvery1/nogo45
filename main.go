@@ -11,7 +11,6 @@ import (
 	"github.com/faiface/pixel/pixelgl"
 	"github.com/faiface/pixel/text"
 	"github.com/sirupsen/logrus"
-	"golang.org/x/image/colornames"
 	"golang.org/x/image/font/basicfont"
 )
 
@@ -19,7 +18,12 @@ var (
 	winBounds          = pixel.R(0, 0, 1024, 720)
 	currentLvl leveler = &Level
 
-	backgroundColour  = colornames.Whitesmoke
+	backgroundColour = color.RGBA{
+		R: 0x00,
+		G: 0x00,
+		B: 0x1d,
+		A: 0xff,
+	}
 	defaultTextColour = color.RGBA{R: 0x10, G: 0x00, B: 0x00, A: 0xff}
 
 	camPos = pixel.ZV
