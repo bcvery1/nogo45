@@ -24,6 +24,7 @@ build: *.go assets/* clean nogo45-linux-amd64 nogo45-windows-4.0-amd64.exe nogo4
 .PHONY:dist
 dist: build
 	zip dist/windows.zip nogo45-windows-4.0-amd64.exe -r assets
+	zip dist/windows-32.zip nogo45-windows-4.0-386.exe -r assets
 	zip dist/mac.zip nogo45-darwin-10.6-amd64 -r assets
 	zip dist/linux.zip nogo45-linux-amd64 -r assets
 
@@ -32,6 +33,9 @@ nogo45-linux-amd64: *.go assets/*
 
 nogo45-windows-4.0-amd64.exe: *.go assets/*
 	xgo -go 1.12 --targets=windows/amd64 -ldflags='-H=windowsgui' github.com/bcvery1/nogo45
+
+nogo45-windows-4.0-386.exe: *.go assets/*
+	xgo -go 1.12 --targets=windows/386 -ldflags='-H=windowsgui' github.com/bcvery1/nogo45
 
 nogo45-darwin-10.6-amd64: *.go assets/*
 	xgo -go 1.12 --targets=darwin/amd64 github.com/bcvery1/nogo45
