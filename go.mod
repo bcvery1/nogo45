@@ -7,5 +7,5 @@ require (
 	github.com/faiface/beep v1.0.1
 	github.com/faiface/pixel v0.8.1-0.20190629221412-aeef94f20093
 	github.com/sirupsen/logrus v1.4.2
-	golang.org/x/image v0.5.0
+	golang.org/x/image v0.10.0
 )
